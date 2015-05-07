@@ -13,7 +13,6 @@ import javax.swing.JOptionPane;
  * @author gatsuxolotl
  */
 public class reto extends javax.swing.JFrame {
-
     int selector = 0, respuesta, selector2, limite1, limite2, cont = 0,
             operador1, operador2, contsum = 0, contrest = 0, contmult = 0,
             contdiv = 0;
@@ -35,7 +34,7 @@ public class reto extends javax.swing.JFrame {
         String numazar = "", temp2 = "";
         limite1 = respuesta + 10;
         limite2 = respuesta - 10;
-        //(int)(Math.random()*(HASTA-DESDE+1)+DESDE);
+        
         exp = (int) (Math.random() * (8 - 0 + 1) + 0);
         arregloboton[exp] = respuesta;
 
@@ -56,6 +55,7 @@ public class reto extends javax.swing.JFrame {
             }
             contadorrep = 0;
         } while (fnl != 8);
+        
         jButton1.setText(Integer.toString(operador1));
         jButton2.setText(simbolo);
         jButton3.setText(Integer.toString(operador2));
@@ -68,11 +68,6 @@ public class reto extends javax.swing.JFrame {
         jButton10.setText(Integer.toString(arregloboton[6]));
         jButton11.setText(Integer.toString(arregloboton[7]));
         jButton12.setText(Integer.toString(arregloboton[8]));
-
-        /*for (int j = 0; j < arregloboton.length; j++) {
-         System.out.println(arregloboton[j]);
-            
-         }*/
     }
 
     public int suma() {
@@ -81,7 +76,7 @@ public class reto extends javax.swing.JFrame {
         operador2 = (int) (Math.random() * (99 - 10 + 1) + 10);
         respuesta = operador1 + operador2;
         System.out.println(operador1 + "+" + operador2 + "=" + respuesta);
-        return (respuesta);
+        return respuesta;
     }
 
     public int resta() {
@@ -90,7 +85,7 @@ public class reto extends javax.swing.JFrame {
         operador2 = (int) (Math.random() * (99 - 10 + 1) + 10);
         respuesta = operador1 - operador2;
         System.out.println(operador1 + "-" + operador2 + "=" + respuesta);
-        return (respuesta);
+        return respuesta;
     }
 
     public int multiplicacion() {
@@ -99,7 +94,7 @@ public class reto extends javax.swing.JFrame {
         operador2 = (int) (Math.random() * (9 - 2 + 1) + 2);
         respuesta = operador1 * operador2;
         System.out.println(operador1 + "*" + operador2 + "=" + respuesta);
-        return (respuesta);
+        return respuesta;
     }
 
     public int divicion() {
@@ -108,7 +103,7 @@ public class reto extends javax.swing.JFrame {
         operador2 = (int) (Math.random() * (9 - 2 + 1) + 2);
         respuesta = operador1 / operador2;
         System.out.println(operador1 + "/" + operador2 + "=" + respuesta);
-        return (respuesta);
+        return respuesta;
     }
 
     public void principia() {
@@ -195,7 +190,7 @@ public class reto extends javax.swing.JFrame {
                 jButton12.setForeground(Color.blue);
                 jButton13.setForeground(Color.blue);
                 jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/agua.png")));
-                simbolo = "X";
+                simbolo = "*";
                 botones(multiplicacion());
                 System.out.println("multi");
                 System.out.println(contmult);
@@ -216,7 +211,7 @@ public class reto extends javax.swing.JFrame {
                 jButton12.setForeground(Color.gray);
                 jButton13.setForeground(Color.gray);
                 jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fuego.png")));
-                simbolo = "%";
+                simbolo = "/";
                 botones(divicion());
                 System.out.println("divi");
                 System.out.println(contdiv);
