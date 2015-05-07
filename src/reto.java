@@ -1,4 +1,5 @@
 
+import java.awt.Color;
 import java.util.Random;
 import javax.swing.JOptionPane;
 
@@ -13,9 +14,10 @@ import javax.swing.JOptionPane;
  * @author gatsuxolotl
  */
 public class reto extends javax.swing.JFrame {
-     int selector=0,respuesta,sumando,sumando2,selector2,limite1,limite2;
-     int cont=0;
-    int contsum=0, contrest=0, contmult=0,contdiv=0;
+     int selector=0,respuesta,selector2,limite1,limite2,cont=0,
+             operador1,operador2,contsum=0, contrest=0, contmult=0,
+             contdiv=0;
+     String simbolo="";
     Random rnd = new Random();
 
     /**
@@ -53,6 +55,9 @@ public class reto extends javax.swing.JFrame {
                 }
             contadorrep=0;
         } while (fnl!=8);
+            jButton1.setText(Integer.toString(operador1));
+            jButton2.setText(simbolo);
+            jButton3.setText(Integer.toString(operador2));
             jButton4.setText(Integer.toString(arregloboton[0]));
             jButton5.setText(Integer.toString(arregloboton[1]));
             jButton6.setText(Integer.toString(arregloboton[2]));
@@ -62,18 +67,47 @@ public class reto extends javax.swing.JFrame {
             jButton10.setText(Integer.toString(arregloboton[6]));
             jButton11.setText(Integer.toString(arregloboton[7]));
             jButton12.setText(Integer.toString(arregloboton[8]));
+            
             /*for (int j = 0; j < arregloboton.length; j++) {
                 System.out.println(arregloboton[j]);
             
         }*/
         
     }
+    
     public int suma(){
         //(int)(Math.random()*(HASTA-DESDE+1)+DESDE);
-       sumando=(int)(Math.random()*(999-100+1)+100);
-       sumando2=(int)(Math.random()*(99-10+1)+10);
-       respuesta=sumando+sumando2;
-        System.out.println(sumando+"+"+sumando2+"="+respuesta);
+       operador1=(int)(Math.random()*(999-100+1)+100);
+       operador2=(int)(Math.random()*(99-10+1)+10);
+       respuesta=operador1+operador2;
+        System.out.println(operador1+"+"+operador2+"="+respuesta);
+    return(respuesta);
+    }
+    
+    public int resta(){
+        //(int)(Math.random()*(HASTA-DESDE+1)+DESDE);
+       operador1=(int)(Math.random()*(999-100+1)+100);
+       operador2=(int)(Math.random()*(99-10+1)+10);
+       respuesta=operador1-operador2;
+        System.out.println(operador1+"-"+operador2+"="+respuesta);
+    return(respuesta);
+    }
+    
+    public int multiplicacion(){
+        //(int)(Math.random()*(HASTA-DESDE+1)+DESDE);
+       operador1=(int)(Math.random()*(500-100+1)+100);
+       operador2=(int)(Math.random()*(9-2+1)+2);
+       respuesta=operador1*operador2;
+        System.out.println(operador1+"*"+operador2+"="+respuesta);
+    return(respuesta);
+    }
+    
+    public int divicion(){
+        //(int)(Math.random()*(HASTA-DESDE+1)+DESDE);
+       operador1=(int)(Math.random()*(999-200+1)+200);
+       operador2=(int)(Math.random()*(9-2+1)+2);
+       respuesta=operador1/operador2;
+        System.out.println(operador1+"/"+operador2+"="+respuesta);
     return(respuesta);
     }
     
@@ -106,21 +140,85 @@ public class reto extends javax.swing.JFrame {
         switch (selector2) {
             case 0:
                 contsum++;
+                jButton1.setForeground(Color.red);
+                jButton2.setForeground(Color.red);
+                jButton3.setForeground(Color.red);
+                jButton4.setForeground(Color.red);
+                jButton5.setForeground(Color.red);
+                jButton6.setForeground(Color.red);
+                jButton7.setForeground(Color.red);
+                jButton8.setForeground(Color.red);
+                jButton9.setForeground(Color.red);
+                jButton10.setForeground(Color.red);
+                jButton11.setForeground(Color.red);
+                jButton12.setForeground(Color.red);
+                jButton13.setForeground(Color.red);
+                jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sangre.png")));
+                simbolo="+";
+                botones(suma());
                 System.out.println("suma");
                 System.out.println(contsum);
                 break;
             case 1:
                 contrest++;
+                jButton1.setForeground(Color.green);
+                jButton2.setForeground(Color.green);
+                jButton3.setForeground(Color.green);
+                jButton4.setForeground(Color.green);
+                jButton5.setForeground(Color.green);
+                jButton6.setForeground(Color.green);
+                jButton7.setForeground(Color.green);
+                jButton8.setForeground(Color.green);
+                jButton9.setForeground(Color.green);
+                jButton10.setForeground(Color.green);
+                jButton11.setForeground(Color.green);
+                jButton12.setForeground(Color.green);
+                jButton13.setForeground(Color.green);
+                jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tierra.png")));
+                simbolo="-";
+                botones(resta());
                 System.out.println("resta");
                 System.out.println(contrest);
                 break;
             case 2:
                 contmult++;
+                jButton1.setForeground(Color.blue);
+                jButton2.setForeground(Color.blue);
+                jButton3.setForeground(Color.blue);
+                jButton4.setForeground(Color.blue);
+                jButton5.setForeground(Color.blue);
+                jButton6.setForeground(Color.blue);
+                jButton7.setForeground(Color.blue);
+                jButton8.setForeground(Color.blue);
+                jButton9.setForeground(Color.blue);
+                jButton10.setForeground(Color.blue);
+                jButton11.setForeground(Color.blue);
+                jButton12.setForeground(Color.blue);
+                jButton13.setForeground(Color.blue);
+                jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agua.png")));
+                simbolo="X";
+                botones(multiplicacion());
                 System.out.println("multi");
                 System.out.println(contmult);
                 break;
             case 3:
                 contdiv++;
+                jButton1.setForeground(Color.gray);
+                jButton2.setForeground(Color.gray);
+                jButton3.setForeground(Color.gray);
+                jButton4.setForeground(Color.gray);
+                jButton5.setForeground(Color.gray);
+                jButton6.setForeground(Color.gray);
+                jButton7.setForeground(Color.gray);
+                jButton8.setForeground(Color.gray);
+                jButton9.setForeground(Color.gray);
+                jButton10.setForeground(Color.gray);
+                jButton11.setForeground(Color.gray);
+                jButton12.setForeground(Color.gray);
+                jButton13.setForeground(Color.gray);
+                jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fuego.png")));
+                simbolo="%";
+                botones(divicion());
                 System.out.println("divi");
                 System.out.println(contdiv);
                 break;
@@ -129,7 +227,6 @@ public class reto extends javax.swing.JFrame {
             default:
                 throw new AssertionError();
         }
-        jButton10.setText("olakase");
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -160,12 +257,16 @@ public class reto extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton1.setText("jButton1");
 
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton2.setText("jButton1");
 
+        jButton3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton3.setText("jButton1");
 
+        jButton4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton4.setText("jButton1");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,6 +274,7 @@ public class reto extends javax.swing.JFrame {
             }
         });
 
+        jButton5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton5.setText("jButton1");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,6 +282,7 @@ public class reto extends javax.swing.JFrame {
             }
         });
 
+        jButton6.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton6.setText("jButton1");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,6 +290,7 @@ public class reto extends javax.swing.JFrame {
             }
         });
 
+        jButton7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton7.setText("jButton1");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,6 +298,7 @@ public class reto extends javax.swing.JFrame {
             }
         });
 
+        jButton8.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton8.setText("jButton1");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -201,6 +306,7 @@ public class reto extends javax.swing.JFrame {
             }
         });
 
+        jButton9.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton9.setText("jButton1");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -208,6 +314,7 @@ public class reto extends javax.swing.JFrame {
             }
         });
 
+        jButton10.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton10.setText("jButton1");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -215,6 +322,7 @@ public class reto extends javax.swing.JFrame {
             }
         });
 
+        jButton11.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton11.setText("jButton1");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,6 +330,7 @@ public class reto extends javax.swing.JFrame {
             }
         });
 
+        jButton12.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton12.setText("jButton1");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -229,12 +338,16 @@ public class reto extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Tiempo restante");
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("Elemento");
 
+        jButton13.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton13.setText("jButton1");
 
+        jButton14.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton14.setText("Iniciar");
         jButton14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -242,7 +355,7 @@ public class reto extends javax.swing.JFrame {
             }
         });
 
-        jButton15.setText("jButton1");
+        jButton15.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -270,22 +383,23 @@ public class reto extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton3))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(117, 117, 117)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton10)
                         .addGap(10, 10, 10)
                         .addComponent(jButton11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton12))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton14)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton15)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton14)))
+                        .addGap(63, 63, 63)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -314,12 +428,17 @@ public class reto extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49))))
         );
 
         pack();
@@ -327,9 +446,7 @@ public class reto extends javax.swing.JFrame {
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         // TODO add your handling code here:
-       //principia();
-       //suma();
-       botones(suma());
+        principia();
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -365,7 +482,7 @@ public class reto extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-         if (jButton4.getText().equals(Integer.toString(respuesta))) {
+         if (jButton8.getText().equals(Integer.toString(respuesta))) {
             System.out.println("CORRECTO");
         }else{
             System.out.println("falso");
