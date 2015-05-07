@@ -1,5 +1,6 @@
 
 import java.util.Random;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -26,22 +27,45 @@ public class reto extends javax.swing.JFrame {
 
     //inicio de metodos
     public void botones(int respuesta){
-        int alazar[]=new int [8],selectorbotones,exp,repetidos[]={99,99,99,99,99,99,99,99};
+        int alazar[]=new int [9],selectorbotones,exp,repetidos[]=new int [9],
+                temp=0,arregloboton[]=new int [9],i=0,contadorrep=0,fnl=0;
+        String numazar="",temp2="";
         limite1=respuesta+10;
         limite2=respuesta-10;
-        for (int i = 0; i < 8; i++) {
             //(int)(Math.random()*(HASTA-DESDE+1)+DESDE);
-            System.out.println(repetidos[i]);
             exp=(int)(Math.random()*(8-0+1)+0);
-            for (int j = 0; j < 7; j++) {
-                if (repetidos[j]!=exp) {
-                repetidos[i]=exp;
-                j=7;
-            }  
-            }
-            alazar[i]=(int)(Math.random()*(limite1-limite2+1)+limite2);
-            System.out.println("***"+repetidos[i]+"***");
-        }
+            arregloboton[exp]=respuesta;
+            
+            do {
+            exp=(int)(Math.random()*(limite1-limite2+1)+limite2);
+                for (int j = 0; j < arregloboton.length; j++) {
+                    if (arregloboton[j]!=exp) {
+                        contadorrep++;
+                    }
+                }
+                if (arregloboton[i]!=respuesta&&contadorrep==9&&arregloboton[i]==0) {
+                    arregloboton[i]=exp;
+                    fnl++;
+                }
+            i++;
+                if (i==9) {
+                    i=0;
+                }
+            contadorrep=0;
+        } while (fnl!=8);
+            jButton4.setText(Integer.toString(arregloboton[0]));
+            jButton5.setText(Integer.toString(arregloboton[1]));
+            jButton6.setText(Integer.toString(arregloboton[2]));
+            jButton7.setText(Integer.toString(arregloboton[3]));
+            jButton8.setText(Integer.toString(arregloboton[4]));
+            jButton9.setText(Integer.toString(arregloboton[5]));
+            jButton10.setText(Integer.toString(arregloboton[6]));
+            jButton11.setText(Integer.toString(arregloboton[7]));
+            jButton12.setText(Integer.toString(arregloboton[8]));
+            /*for (int j = 0; j < arregloboton.length; j++) {
+                System.out.println(arregloboton[j]);
+            
+        }*/
         
     }
     public int suma(){
@@ -143,22 +167,67 @@ public class reto extends javax.swing.JFrame {
         jButton3.setText("jButton1");
 
         jButton4.setText("jButton1");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("jButton1");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("jButton1");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setText("jButton1");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jButton8.setText("jButton1");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jButton9.setText("jButton1");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
         jButton10.setText("jButton1");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
 
         jButton11.setText("jButton1");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
 
         jButton12.setText("jButton1");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Tiempo restante");
 
@@ -263,6 +332,78 @@ public class reto extends javax.swing.JFrame {
        botones(suma());
     }//GEN-LAST:event_jButton14ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        if (jButton4.getText().equals(Integer.toString(respuesta))) {
+            JOptionPane.showMessageDialog(this, "correcto");
+        }else{
+            JOptionPane.showMessageDialog(this, "falso");
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+         if (jButton5.getText().equals(Integer.toString(respuesta))) {
+            System.out.println("CORRECTO");
+        }else{
+            System.out.println("falso");
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+         if (jButton6.getText().equals(Integer.toString(respuesta))) {
+            System.out.println("CORRECTO");
+        }else{
+            System.out.println("falso");
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+         if (jButton7.getText().equals(Integer.toString(respuesta))) {
+            System.out.println("CORRECTO");
+        }else{
+            System.out.println("falso");
+        }
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+         if (jButton4.getText().equals(Integer.toString(respuesta))) {
+            System.out.println("CORRECTO");
+        }else{
+            System.out.println("falso");
+        }
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+         if (jButton9.getText().equals(Integer.toString(respuesta))) {
+            System.out.println("CORRECTO");
+        }else{
+            System.out.println("falso");
+        }
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+         if (jButton10.getText().equals(Integer.toString(respuesta))) {
+            System.out.println("CORRECTO");
+        }else{
+            System.out.println("falso");
+        }
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+         if (jButton11.getText().equals(Integer.toString(respuesta))) {
+            System.out.println("CORRECTO");
+        }else{
+            System.out.println("falso");
+        }
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+         if (jButton12.getText().equals(Integer.toString(respuesta))) {
+            System.out.println("CORRECTO");
+        }else{
+            System.out.println("falso");
+        }
+    }//GEN-LAST:event_jButton12ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -317,4 +458,8 @@ public class reto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
+
+    private String IntegerToString(int temp) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
