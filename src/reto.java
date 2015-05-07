@@ -12,9 +12,10 @@ import java.util.Random;
  * @author gatsuxolotl
  */
 public class reto extends javax.swing.JFrame {
-     int selector=0,respuesta;
+     int selector=0,respuesta,sumando,sumando2,selector2,limite1,limite2;
      int cont=0;
     int contsum=0, contrest=0, contmult=0,contdiv=0;
+    Random rnd = new Random();
 
     /**
      * Creates new form reto
@@ -24,14 +25,36 @@ public class reto extends javax.swing.JFrame {
     }
 
     //inicio de metodos
-    public int suma(){
+    public void botones(int respuesta){
+        int alazar[]=new int [8],selectorbotones,exp,repetidos[]={99,99,99,99,99,99,99,99};
+        limite1=respuesta+10;
+        limite2=respuesta-10;
+        for (int i = 0; i < 8; i++) {
+            //(int)(Math.random()*(HASTA-DESDE+1)+DESDE);
+            System.out.println(repetidos[i]);
+            exp=(int)(Math.random()*(8-0+1)+0);
+            for (int j = 0; j < 7; j++) {
+                if (repetidos[j]!=exp) {
+                repetidos[i]=exp;
+                j=7;
+            }  
+            }
+            alazar[i]=(int)(Math.random()*(limite1-limite2+1)+limite2);
+            System.out.println("***"+repetidos[i]+"***");
+        }
         
-    return(0);
+    }
+    public int suma(){
+        //(int)(Math.random()*(HASTA-DESDE+1)+DESDE);
+       sumando=(int)(Math.random()*(999-100+1)+100);
+       sumando2=(int)(Math.random()*(99-10+1)+10);
+       respuesta=sumando+sumando2;
+        System.out.println(sumando+"+"+sumando2+"="+respuesta);
+    return(respuesta);
     }
     
     public void principia(){
      int operaciones[]={0,1,2,3};
-        Random rnd = new Random();
         
         
         if (contsum==5) {
@@ -49,14 +72,14 @@ public class reto extends javax.swing.JFrame {
         
         do {       
             selector=rnd.nextInt(4);
-            respuesta=operaciones[selector];
+            selector2=operaciones[selector];
             cont++;
             if (cont==4) {
                 cont=0;
             }
         } while (operaciones[cont]==-99);
         
-        switch (respuesta) {
+        switch (selector2) {
             case 0:
                 contsum++;
                 System.out.println("suma");
@@ -80,10 +103,9 @@ public class reto extends javax.swing.JFrame {
             case -99:
                 break;
             default:
-                System.out.println("fuera de rango");
-                System.out.println(respuesta);
                 throw new AssertionError();
         }
+        jButton10.setText("olakase");
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -236,7 +258,9 @@ public class reto extends javax.swing.JFrame {
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         // TODO add your handling code here:
-       principia();
+       //principia();
+       //suma();
+       botones(suma());
     }//GEN-LAST:event_jButton14ActionPerformed
 
     /**
