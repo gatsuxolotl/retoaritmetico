@@ -19,7 +19,7 @@ import javax.swing.Timer;
 public class reto extends javax.swing.JFrame {
      int selector=0,respuesta,selector2,limite1,limite2,cont=0,
              operador1,operador2,contsum=0, contrest=0, contmult=0,
-             contdiv=0,contadorSegundos=20;
+             contdiv=0,contadorSegundos=20,botoncontenedor;
      String simbolo=" ";
     Random rnd = new Random();
     Timer time;
@@ -39,7 +39,9 @@ public class reto extends javax.swing.JFrame {
         limite1=respuesta+10;
         limite2=respuesta-10;
             //(int)(Math.random()*(HASTA-DESDE+1)+DESDE);
+            //asigno lugal aleatorio dentro del array para la respuesta
             exp=(int)(Math.random()*(8-0+1)+0);
+            botoncontenedor=exp;
             arregloboton[exp]=respuesta;
             
             do {
@@ -347,11 +349,50 @@ public class reto extends javax.swing.JFrame {
         @Override
         public void actionPerformed(ActionEvent e){
         jButton13.setText(":20");
-        jButton13.setText(contadorSegundos+"");
         contadorSegundos--;
+        jButton13.setText(contadorSegundos+"");
             if (contadorSegundos==0) {
-                contadorSegundos=60;
-                
+                switch (botoncontenedor) {
+                    case 0:
+                        jButton4.setc
+                        break;
+                    case 1:
+                        
+                        break;
+                    case 2:
+                        
+                        break;
+                    case 3:
+                        
+                        break;
+                    case 4:
+                        
+                        break;
+                    case 5:
+                        
+                        break;
+                    case 6:
+                        
+                        break;
+                    case 7:
+                        
+                        break;
+                    case 8:
+                        
+                        break;
+                    default:
+                        throw new AssertionError();
+                }
+                jButton4.setEnabled(false);
+                jButton5.setEnabled(false);
+                jButton6.setEnabled(false);
+                jButton7.setEnabled(false);
+                jButton8.setEnabled(false);
+                jButton9.setEnabled(false);
+                jButton10.setEnabled(false);
+                jButton11.setEnabled(false);
+                jButton12.setEnabled(false);
+                time.stop();
             }
         }
     
@@ -442,6 +483,7 @@ public class reto extends javax.swing.JFrame {
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
+        jButton4.setBackground(new java.awt.Color(51, 255, 0));
         jButton4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
