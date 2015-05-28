@@ -38,6 +38,7 @@ public class dificultadintermedia extends javax.swing.JDialog {
     public dificultadintermedia(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        quitaacciones();
     }
     
     public class iconosangre implements Icon{
@@ -133,7 +134,26 @@ public class dificultadintermedia extends javax.swing.JDialog {
             arregloboton[exp]=respuesta;
             
             do {
-            exp=(int)(Math.random()*(limite1-limite2+1)+limite2);
+                
+                
+                if (respuesta%2==0) {
+                    exp=(int)(Math.random()*(limite1-limite2+1)+limite2);
+                    if (exp%2==0) {
+                        
+                    } else {
+                        exp=0;
+                    }
+                } else {
+                    exp=(int)(Math.random()*(limite1-limite2+1)+limite2);
+                    if (exp%2!=0) {
+                        
+                    } else {
+                        exp=0;
+                    }
+                }
+                
+                
+            
                 for (int j = 0; j < arregloboton.length; j++) {
                     if (arregloboton[j]!=exp) {
                         contadorrep++;
@@ -168,7 +188,7 @@ public class dificultadintermedia extends javax.swing.JDialog {
         }*/
         
     }
-    
+
     public int suma(){
         //(int)(Math.random()*(HASTA-DESDE+1)+DESDE);
        operador1=(int)(Math.random()*(999-100+1)+100);
@@ -327,10 +347,6 @@ public class dificultadintermedia extends javax.swing.JDialog {
     public void cambiasombras(){
         jButton21.setText("Elemtos "+contaciertos+" de 20");
         jButton29.setText("Elemtos "+conterrores+" de 20");
-        if (contaciertos+conterrores>=20) {
-            JOptionPane.showMessageDialog(null, "Fin del juego");
-            
-        }
         switch (contaciertos) {
             case 1:
                 jButton22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/barra1.png")));
@@ -728,13 +744,36 @@ public class dificultadintermedia extends javax.swing.JDialog {
                     default:
                 }
                  cambiasombras();
-                 JOptionPane.showMessageDialog(null, "tiempo agotado");
+                 switch (simbolo) {
+                case "+":
+                    iconosangre sang = new iconosangre();
+                    JOptionPane.showMessageDialog(null, "¡Tiempo agotado pierdes sangre!", "Acierto", JOptionPane.DEFAULT_OPTION, sang);
+                    
+                break;
+                case "-":
+                    iconotierra tierr = new iconotierra();
+                    JOptionPane.showMessageDialog(null, "¡Tiempo agotado pierdes tierra!", "Acierto", JOptionPane.DEFAULT_OPTION, tierr);
+                break;
+                case "X":
+                    iconoagua agu = new iconoagua();
+                    JOptionPane.showMessageDialog(null, "¡Tiempo agotado pierdes agua!", "Acierto", JOptionPane.DEFAULT_OPTION, agu);
+                break;
+                case "/":
+                    iconofuego fueg = new iconofuego();
+                    JOptionPane.showMessageDialog(null, "¡Tiempo agotado pierdes fuego!", "Acierto", JOptionPane.DEFAULT_OPTION, fueg);
+                break;
+                default:
+            }
                  quitamarcas();
                  agregaacciones();
                 repaint();
                  contadorSegundos=5;
-                 principia();
-                 tiempoparaatras();
+                 if (contaciertos+conterrores==20) {
+                findeljuego();
+            } else {
+                principia();
+                tiempoparaatras();
+            }
                  System.out.println("olakase");
             }
         }
@@ -777,6 +816,30 @@ public class dificultadintermedia extends javax.swing.JDialog {
     jButton10.setBackground(new java.awt.Color(240, 240, 240));
     jButton11.setBackground(new java.awt.Color(240, 240, 240));
     jButton12.setBackground(new java.awt.Color(240, 240, 240));
+    }
+    
+    public void findeljuego(){
+        
+        
+        if (contaciertos>conterrores) {
+            if (contaciertos==20) {
+            JOptionPane.showMessageDialog(null, "¡Victoria!\n\nfantastico no comestiste un solo error");
+        }else{
+            JOptionPane.showMessageDialog(null, "¡Victoria!\n\nAciertos\nSuma: "+contsumacierto+"\nResta: "+contrestacierto+"\nMultiplicación: "+contmultacierto+"\nDivición: "+contdivacierto+"\n\nErrores\nSuma: "+contsumerror+"\nResta: "+contresterror+"\nMultiplicación: "+contmulterror+"\nDivición: "+contdiverror);
+            }
+        }
+        if (contaciertos<conterrores) {
+            if (conterrores==20) {
+            JOptionPane.showMessageDialog(null, "¡Derrota!\n\npatetico no acertaste ni una sola");
+        }else{
+            JOptionPane.showMessageDialog(null, "¡Derrota!\n\nAciertos\nSuma: "+contsumacierto+"\nResta: "+contrestacierto+"\nMultiplicación: "+contmultacierto+"\nDivición: "+contdivacierto+"\n\nErrores\nSuma: "+contsumerror+"\nResta: "+contresterror+"\nMultiplicación: "+contmulterror+"\nDivición: "+contdiverror);
+            }
+        }
+        if (contaciertos==conterrores) {
+            JOptionPane.showMessageDialog(null, "¡Empate!\n\ncasi victoria|casi derrota\n\nAciertos\nSuma: "+contsumacierto+"\nResta: "+contrestacierto+"\nMultiplicación: "+contmultacierto+"\nDivición: "+contdivacierto+"\n\nErrores\nSuma: "+contsumerror+"\nResta: "+contresterror+"\nMultiplicación: "+contmulterror+"\nDivición: "+contdiverror);
+        }
+    JOptionPane.showMessageDialog(null, "Fin del juego");
+    quitaacciones();
     }
     
 
@@ -1371,6 +1434,7 @@ public class dificultadintermedia extends javax.swing.JDialog {
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         // TODO add your handling code here:
+        agregaacciones();
         principia();
         tiempoparaatras();
         jButton14.removeNotify();
@@ -1408,8 +1472,12 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 break;
                 default:
             }
+            if (contaciertos+conterrores==20) {
+                findeljuego();
+            } else {
                 principia();
                 tiempoparaatras();
+            }
         }else{
             conterrores++;
             switch (simbolo) {
@@ -1439,9 +1507,12 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 break;
                 default:
             }
-            principia();
-            tiempoparaatras();
-            
+            if (contaciertos+conterrores==20) {
+                findeljuego();
+            } else {
+                principia();
+                tiempoparaatras();
+            }
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -1485,8 +1556,12 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 break;
                 default:
             }
+            if (contaciertos+conterrores==20) {
+                findeljuego();
+            } else {
                 principia();
                 tiempoparaatras();
+            }
         }else{
             conterrores++;
             switch (simbolo) {
@@ -1516,9 +1591,12 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 break;
                 default:
             }
-            principia();
-            tiempoparaatras();
-            
+            if (contaciertos+conterrores==20) {
+                findeljuego();
+            } else {
+                principia();
+                tiempoparaatras();
+            }
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -1554,8 +1632,12 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 break;
                 default:
             }
+            if (contaciertos+conterrores==20) {
+                findeljuego();
+            } else {
                 principia();
                 tiempoparaatras();
+            }
         }else{
             conterrores++;
             switch (simbolo) {
@@ -1585,9 +1667,12 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 break;
                 default:
             }
-            principia();
-            tiempoparaatras();
-            
+            if (contaciertos+conterrores==20) {
+                findeljuego();
+            } else {
+                principia();
+                tiempoparaatras();
+            }
         }
     }//GEN-LAST:event_jButton11ActionPerformed
 
@@ -1623,8 +1708,12 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 break;
                 default:
             }
+            if (contaciertos+conterrores==20) {
+                findeljuego();
+            } else {
                 principia();
                 tiempoparaatras();
+            }
         }else{
             conterrores++;
             switch (simbolo) {
@@ -1654,9 +1743,12 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 break;
                 default:
             }
-            principia();
-            tiempoparaatras();
-            
+            if (contaciertos+conterrores==20) {
+                findeljuego();
+            } else {
+                principia();
+                tiempoparaatras();
+            }
         }
     }//GEN-LAST:event_jButton9ActionPerformed
 
@@ -1692,8 +1784,12 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 break;
                 default:
             }
+            if (contaciertos+conterrores==20) {
+                findeljuego();
+            } else {
                 principia();
                 tiempoparaatras();
+            }
         }else{
             conterrores++;
             switch (simbolo) {
@@ -1723,9 +1819,12 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 break;
                 default:
             }
-            principia();
-            tiempoparaatras();
-            
+            if (contaciertos+conterrores==20) {
+                findeljuego();
+            } else {
+                principia();
+                tiempoparaatras();
+            }
         }
     }//GEN-LAST:event_jButton7ActionPerformed
 
@@ -1761,8 +1860,12 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 break;
                 default:
             }
+            if (contaciertos+conterrores==20) {
+                findeljuego();
+            } else {
                 principia();
                 tiempoparaatras();
+            }
         }else{
             conterrores++;
             switch (simbolo) {
@@ -1792,9 +1895,12 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 break;
                 default:
             }
-            principia();
-            tiempoparaatras();
-            
+            if (contaciertos+conterrores==20) {
+                findeljuego();
+            } else {
+                principia();
+                tiempoparaatras();
+            }
         }
     }//GEN-LAST:event_jButton10ActionPerformed
 
@@ -1834,8 +1940,12 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 break;
                 default:
             }
+            if (contaciertos+conterrores==20) {
+                findeljuego();
+            } else {
                 principia();
                 tiempoparaatras();
+            }
         }else{
             conterrores++;
             switch (simbolo) {
@@ -1865,8 +1975,12 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 break;
                 default:
             }
-            principia();
-            tiempoparaatras();
+            if (contaciertos+conterrores==20) {
+                findeljuego();
+            } else {
+                principia();
+                tiempoparaatras();
+            }
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -1902,8 +2016,12 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 break;
                 default:
             }
+            if (contaciertos+conterrores==20) {
+                findeljuego();
+            } else {
                 principia();
                 tiempoparaatras();
+            }
         }else{
             conterrores++;
             switch (simbolo) {
@@ -1933,8 +2051,12 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 break;
                 default:
             }
-            principia();
-            tiempoparaatras();
+            if (contaciertos+conterrores==20) {
+                findeljuego();
+            } else {
+                principia();
+                tiempoparaatras();
+            }
         }
     }//GEN-LAST:event_jButton8ActionPerformed
 
@@ -1970,8 +2092,12 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 break;
                 default:
             }
+            if (contaciertos+conterrores==20) {
+                findeljuego();
+            } else {
                 principia();
                 tiempoparaatras();
+            }
         }else{
             conterrores++;
             switch (simbolo) {
@@ -2001,8 +2127,12 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 break;
                 default:
             }
-            principia();
-            tiempoparaatras();
+            if (contaciertos+conterrores==20) {
+                findeljuego();
+            } else {
+                principia();
+                tiempoparaatras();
+            }
         }
     }//GEN-LAST:event_jButton12ActionPerformed
 
