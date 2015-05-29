@@ -24,7 +24,7 @@ import javax.swing.ImageIcon;
 public class dificultadintermedia extends javax.swing.JDialog {
     int selector=0,respuesta,selector2,limite1,limite2,cont=0,
              operador1,operador2,contsum=0, contrest=0, contmult=0,
-             contdiv=0,contadorSegundos=5,botoncontenedor,contadortotal
+             contdiv=0,contadorSegundos=20,botoncontenedor,contadortotal
              ,contsumacierto=0, contrestacierto=0, contmultacierto=0,contdivacierto=0
              ,contsumerror=0, contresterror=0, contmulterror=0,contdiverror=0,
              conterrores=0,contaciertos=0;
@@ -39,6 +39,15 @@ public class dificultadintermedia extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         quitaacciones();
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                if (time==null) {
+                } else {
+                    time.stop();
+                }
+            }
+        });
     }
     
     public class iconosangre implements Icon{
@@ -194,7 +203,7 @@ public class dificultadintermedia extends javax.swing.JDialog {
        operador1=(int)(Math.random()*(999-100+1)+100);
        operador2=(int)(Math.random()*(99-10+1)+10);
        respuesta=operador1+operador2;
-        System.out.println(operador1+"+"+operador2+"="+respuesta);
+//        System.out.println(operador1+"+"+operador2+"="+respuesta);
     return(respuesta);
     }
     
@@ -203,7 +212,7 @@ public class dificultadintermedia extends javax.swing.JDialog {
        operador1=(int)(Math.random()*(999-100+1)+100);
        operador2=(int)(Math.random()*(99-10+1)+10);
        respuesta=operador1-operador2;
-        System.out.println(operador1+"-"+operador2+"="+respuesta);
+//        System.out.println(operador1+"-"+operador2+"="+respuesta);
     return(respuesta);
     }
     
@@ -212,7 +221,7 @@ public class dificultadintermedia extends javax.swing.JDialog {
        operador1=(int)(Math.random()*(500-100+1)+100);
        operador2=(int)(Math.random()*(9-2+1)+2);
        respuesta=operador1*operador2;
-        System.out.println(operador1+"*"+operador2+"="+respuesta);
+//        System.out.println(operador1+"*"+operador2+"="+respuesta);
     return(respuesta);
     }
     
@@ -223,7 +232,7 @@ public class dificultadintermedia extends javax.swing.JDialog {
        operador2=(int)(Math.random()*(9-2+1)+2);
        respuesta=operador1/operador2;
         } while (operador1%operador2!=0);
-        System.out.println(operador1+"/"+operador2+"="+respuesta);
+//        System.out.println(operador1+"/"+operador2+"="+respuesta);
     return(respuesta);
     }
     
@@ -272,8 +281,8 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sangre.png")));
                 simbolo="+";
                 botones(suma());
-                System.out.println("suma");
-                System.out.println(contsum);
+//                System.out.println("suma");
+//                System.out.println(contsum);
                 break;
             case 1:
                 contrest++;
@@ -293,8 +302,8 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tierra.png")));
                 simbolo="-";
                 botones(resta());
-                System.out.println("resta");
-                System.out.println(contrest);
+//                System.out.println("resta");
+//                System.out.println(contrest);
                 break;
             case 2:
                 contmult++;
@@ -314,8 +323,8 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agua.png")));
                 simbolo="X";
                 botones(multiplicacion());
-                System.out.println("multi");
-                System.out.println(contmult);
+//                System.out.println("multi");
+//                System.out.println(contmult);
                 break;
             case 3:
                 contdiv++;
@@ -335,8 +344,8 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fuego.png")));
                 simbolo="/";
                 botones(divicion());
-                System.out.println("divi");
-                System.out.println(contdiv);
+//                System.out.println("divi");
+//                System.out.println(contdiv);
                 break;
             case -99:
                 break;
@@ -676,11 +685,12 @@ public class dificultadintermedia extends javax.swing.JDialog {
     }
     
     public void tiempoparaatras(){
-        contadorSegundos=5;
+        restauracolor();
+        contadorSegundos=20;
     time = new Timer(1000, new ActionListener(){
         @Override
         public void actionPerformed(ActionEvent e){
-        jButton13.setText(":5");
+        jButton13.setText(":20");
         contadorSegundos--;
         jButton13.setText(contadorSegundos+"");
             if (contadorSegundos==0) {
@@ -747,34 +757,34 @@ public class dificultadintermedia extends javax.swing.JDialog {
                  switch (simbolo) {
                 case "+":
                     iconosangre sang = new iconosangre();
-                    JOptionPane.showMessageDialog(null, "¡Tiempo agotado pierdes sangre!", "Acierto", JOptionPane.DEFAULT_OPTION, sang);
+                    JOptionPane.showMessageDialog(null, "¡Tiempo agotado pierdes sangre!", "Tiempo", JOptionPane.DEFAULT_OPTION, sang);
                     
                 break;
                 case "-":
                     iconotierra tierr = new iconotierra();
-                    JOptionPane.showMessageDialog(null, "¡Tiempo agotado pierdes tierra!", "Acierto", JOptionPane.DEFAULT_OPTION, tierr);
+                    JOptionPane.showMessageDialog(null, "¡Tiempo agotado pierdes tierra!", "Tiempo", JOptionPane.DEFAULT_OPTION, tierr);
                 break;
                 case "X":
                     iconoagua agu = new iconoagua();
-                    JOptionPane.showMessageDialog(null, "¡Tiempo agotado pierdes agua!", "Acierto", JOptionPane.DEFAULT_OPTION, agu);
+                    JOptionPane.showMessageDialog(null, "¡Tiempo agotado pierdes agua!", "Tiempo", JOptionPane.DEFAULT_OPTION, agu);
                 break;
                 case "/":
                     iconofuego fueg = new iconofuego();
-                    JOptionPane.showMessageDialog(null, "¡Tiempo agotado pierdes fuego!", "Acierto", JOptionPane.DEFAULT_OPTION, fueg);
+                    JOptionPane.showMessageDialog(null, "¡Tiempo agotado pierdes fuego!", "Tiempo", JOptionPane.DEFAULT_OPTION, fueg);
                 break;
                 default:
             }
                  quitamarcas();
                  agregaacciones();
                 repaint();
-                 contadorSegundos=5;
+                 contadorSegundos=20;
                  if (contaciertos+conterrores==20) {
                 findeljuego();
             } else {
                 principia();
                 tiempoparaatras();
             }
-                 System.out.println("olakase");
+//                 System.out.println("olakase");
             }
         }
     
@@ -842,6 +852,17 @@ public class dificultadintermedia extends javax.swing.JDialog {
     quitaacciones();
     }
     
+    public void restauracolor(){
+        jButton4.setBackground(null);
+        jButton5.setBackground(null);
+        jButton6.setBackground(null);
+        jButton7.setBackground(null);
+        jButton8.setBackground(null);
+        jButton9.setBackground(null);
+        jButton10.setBackground(null);
+        jButton11.setBackground(null);
+        jButton12.setBackground(null);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
