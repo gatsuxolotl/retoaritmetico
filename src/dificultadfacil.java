@@ -792,6 +792,29 @@ public class dificultadfacil extends javax.swing.JDialog {
         jButton7.setBackground(null);
         jButton8.setBackground(null);
     }
+    
+     public void marcarrespuesra() {
+        switch (botoncontenedor) {
+            case 0:
+//                        jButton4.setForeground(Color.pink);
+                jButton4.setBackground(new java.awt.Color(255, 0, 255));
+                break;
+            case 1:
+//                        jButton5.setForeground(Color.pink);
+                jButton5.setBackground(new java.awt.Color(255, 0, 255));
+                break;
+            case 2:
+//                        jButton7.setForeground(Color.pink);
+                jButton7.setBackground(new java.awt.Color(255, 0, 255));
+                break;
+            case 3:
+//                        jButton8.setForeground(Color.pink);
+                jButton8.setBackground(new java.awt.Color(255, 0, 255));
+                break;
+            default:
+                throw new AssertionError();
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -1372,6 +1395,7 @@ public class dificultadfacil extends javax.swing.JDialog {
                 tiempoparaatras();
             }
         } else {
+            marcarrespuesra();
             conterrores++;
             switch (simbolo) {
                 case "+":
@@ -1460,6 +1484,7 @@ public class dificultadfacil extends javax.swing.JDialog {
                 tiempoparaatras();
             }
         } else {
+            marcarrespuesra();
             conterrores++;
             switch (simbolo) {
                 case "+":
@@ -1540,6 +1565,7 @@ public class dificultadfacil extends javax.swing.JDialog {
                 tiempoparaatras();
             }
         } else {
+            marcarrespuesra();
             conterrores++;
             switch (simbolo) {
                 case "+":
@@ -1616,6 +1642,7 @@ public class dificultadfacil extends javax.swing.JDialog {
                 tiempoparaatras();
             }
         } else {
+            marcarrespuesra();
             conterrores++;
             switch (simbolo) {
                 case "+":

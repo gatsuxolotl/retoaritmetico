@@ -863,6 +863,49 @@ public class dificultadintermedia extends javax.swing.JDialog {
         jButton11.setBackground(null);
         jButton12.setBackground(null);
     }
+    
+    public void marcarrespuesra() {
+        switch (botoncontenedor) {
+            case 0:
+//                        jButton4.setForeground(Color.pink);
+                jButton4.setBackground(new java.awt.Color(255, 0, 255));
+                break;
+            case 1:
+//                        jButton5.setForeground(Color.pink);
+                jButton5.setBackground(new java.awt.Color(255, 0, 255));
+                break;
+            case 2:
+//                        jButton6.setForeground(Color.pink);
+                jButton6.setBackground(new java.awt.Color(255, 0, 255));
+                break;
+            case 3:
+//                        jButton7.setForeground(Color.pink);
+                jButton7.setBackground(new java.awt.Color(255, 0, 255));
+                break;
+            case 4:
+//                        jButton8.setForeground(Color.pink);
+                jButton8.setBackground(new java.awt.Color(255, 0, 255));
+                break;
+            case 5:
+//                        jButton9.setForeground(Color.pink);
+                jButton9.setBackground(new java.awt.Color(255, 0, 255));
+                break;
+            case 6:
+//                        jButton10.setForeground(Color.pink);
+                jButton10.setBackground(new java.awt.Color(255, 0, 255));
+                break;
+            case 7:
+//                        jButton11.setForeground(Color.pink);
+                jButton11.setBackground(new java.awt.Color(255, 0, 255));
+                break;
+            case 8:
+//                        jButton12.setForeground(Color.pink);
+                jButton12.setBackground(new java.awt.Color(255, 0, 255));
+                break;
+            default:
+                throw new AssertionError();
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -1500,6 +1543,7 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 tiempoparaatras();
             }
         }else{
+              marcarrespuesra();
             conterrores++;
             switch (simbolo) {
                 case "+":
@@ -1584,6 +1628,7 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 tiempoparaatras();
             }
         }else{
+            marcarrespuesra();
             conterrores++;
             switch (simbolo) {
                 case "+":
@@ -1660,6 +1705,7 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 tiempoparaatras();
             }
         }else{
+              marcarrespuesra();
             conterrores++;
             switch (simbolo) {
                 case "+":
@@ -1736,6 +1782,7 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 tiempoparaatras();
             }
         }else{
+             marcarrespuesra();
             conterrores++;
             switch (simbolo) {
                 case "+":
@@ -1812,6 +1859,7 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 tiempoparaatras();
             }
         }else{
+              marcarrespuesra();
             conterrores++;
             switch (simbolo) {
                 case "+":
@@ -1888,6 +1936,7 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 tiempoparaatras();
             }
         }else{
+              marcarrespuesra();
             conterrores++;
             switch (simbolo) {
                 case "+":
@@ -1968,6 +2017,7 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 tiempoparaatras();
             }
         }else{
+            marcarrespuesra();
             conterrores++;
             switch (simbolo) {
                 case "+":
@@ -2044,6 +2094,7 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 tiempoparaatras();
             }
         }else{
+             marcarrespuesra();
             conterrores++;
             switch (simbolo) {
                 case "+":
@@ -2120,6 +2171,7 @@ public class dificultadintermedia extends javax.swing.JDialog {
                 tiempoparaatras();
             }
         }else{
+             marcarrespuesra();
             conterrores++;
             switch (simbolo) {
                 case "+":

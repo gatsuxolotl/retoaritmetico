@@ -25,8 +25,8 @@ public class dificultaddificil extends javax.swing.JDialog {
     int selector = 0, respuesta, selector2, limite1, limite2, cont = 0,
             operador1, operador2, contsum = 0, contrest = 0, contmult = 0,
             contdiv = 0, contadorSegundos = 20, botoncontenedor, contadortotal,
-            contsumacierto = 0, contrestacierto = 0, contmultacierto = 0, 
-            contdivacierto = 0, contsumerror = 0, contresterror = 0, 
+            contsumacierto = 0, contrestacierto = 0, contmultacierto = 0,
+            contdivacierto = 0, contsumerror = 0, contresterror = 0,
             contmulterror = 0, contdiverror = 0,
             conterrores = 0, contaciertos = 0;
     String simbolo = " ";
@@ -43,7 +43,7 @@ public class dificultaddificil extends javax.swing.JDialog {
         addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosing(java.awt.event.WindowEvent evt) {
-                if (time==null) {
+                if (time == null) {
                 } else {
                     time.stop();
                 }
@@ -137,14 +137,14 @@ public class dificultaddificil extends javax.swing.JDialog {
         String numazar = "", temp2 = "";
         limite1 = respuesta + 20;
         limite2 = respuesta - 20;
-            //(int)(Math.random()*(HASTA-DESDE+1)+DESDE);
+        //(int)(Math.random()*(HASTA-DESDE+1)+DESDE);
         //asigno lugal aleatorio dentro del array para la respuesta
         exp = (int) (Math.random() * (15 - 0 + 1) + 0);
         botoncontenedor = exp;
         arregloboton[exp] = respuesta;
 
         do {
-                
+
             if (respuesta % 2 == 0) {
                 exp = (int) (Math.random() * (limite1 - limite2 + 1) + limite2);
                 if (exp % 2 == 0) {
@@ -160,7 +160,6 @@ public class dificultaddificil extends javax.swing.JDialog {
                     exp = 0;
                 }
             }
-            
 
             for (int j = 0; j < arregloboton.length; j++) {
                 if (arregloboton[j] != exp) {
@@ -932,8 +931,8 @@ public class dificultaddificil extends javax.swing.JDialog {
         JOptionPane.showMessageDialog(null, "Fin del juego");
         quitaacciones();
     }
-    
-    public void restauracolor(){
+
+    public void restauracolor() {
         jButton4.setBackground(null);
         jButton5.setBackground(null);
         jButton6.setBackground(null);
@@ -950,6 +949,77 @@ public class dificultaddificil extends javax.swing.JDialog {
         jButton64.setBackground(null);
         jButton65.setBackground(null);
         jButton66.setBackground(null);
+    }
+
+    public void marcarrespuesra() {
+        switch (botoncontenedor) {
+            case 0:
+//                        jButton4.setForeground(Color.pink);
+                jButton4.setBackground(new java.awt.Color(255, 0, 255));
+                break;
+            case 1:
+//                        jButton5.setForeground(Color.pink);
+                jButton5.setBackground(new java.awt.Color(255, 0, 255));
+                break;
+            case 2:
+//                        jButton6.setForeground(Color.pink);
+                jButton6.setBackground(new java.awt.Color(255, 0, 255));
+                break;
+            case 3:
+//                        jButton7.setForeground(Color.pink);
+                jButton7.setBackground(new java.awt.Color(255, 0, 255));
+                break;
+            case 4:
+//                        jButton8.setForeground(Color.pink);
+                jButton8.setBackground(new java.awt.Color(255, 0, 255));
+                break;
+            case 5:
+//                        jButton9.setForeground(Color.pink);
+                jButton9.setBackground(new java.awt.Color(255, 0, 255));
+                break;
+            case 6:
+//                        jButton10.setForeground(Color.pink);
+                jButton10.setBackground(new java.awt.Color(255, 0, 255));
+                break;
+            case 7:
+//                        jButton11.setForeground(Color.pink);
+                jButton11.setBackground(new java.awt.Color(255, 0, 255));
+                break;
+            case 8:
+//                        jButton12.setForeground(Color.pink);
+                jButton12.setBackground(new java.awt.Color(255, 0, 255));
+                break;
+            case 9:
+//                        jButton12.setForeground(Color.pink);
+                jButton30.setBackground(new java.awt.Color(255, 0, 255));
+                break;
+            case 10:
+//                        jButton12.setForeground(Color.pink);
+                jButton61.setBackground(new java.awt.Color(255, 0, 255));
+                break;
+            case 11:
+//                        jButton12.setForeground(Color.pink);
+                jButton62.setBackground(new java.awt.Color(255, 0, 255));
+                break;
+            case 12:
+//                        jButton12.setForeground(Color.pink);
+                jButton63.setBackground(new java.awt.Color(255, 0, 255));
+                break;
+            case 13:
+//                        jButton12.setForeground(Color.pink);
+                jButton64.setBackground(new java.awt.Color(255, 0, 255));
+                break;
+            case 14:
+//                        jButton12.setForeground(Color.pink);
+                jButton65.setBackground(new java.awt.Color(255, 0, 255));
+                break;
+            case 15:
+//                        jButton12.setForeground(Color.pink);
+                jButton66.setBackground(new java.awt.Color(255, 0, 255));
+                break;
+            default:
+                throw new AssertionError();
+        }
     }
 
     /**
@@ -1676,6 +1746,7 @@ public class dificultaddificil extends javax.swing.JDialog {
                 tiempoparaatras();
             }
         } else {
+            marcarrespuesra();
             conterrores++;
             switch (simbolo) {
                 case "+":
@@ -1764,6 +1835,7 @@ public class dificultaddificil extends javax.swing.JDialog {
                 tiempoparaatras();
             }
         } else {
+            marcarrespuesra();
             conterrores++;
             switch (simbolo) {
                 case "+":
@@ -1840,6 +1912,7 @@ public class dificultaddificil extends javax.swing.JDialog {
                 tiempoparaatras();
             }
         } else {
+            marcarrespuesra();
             conterrores++;
             switch (simbolo) {
                 case "+":
@@ -1916,6 +1989,7 @@ public class dificultaddificil extends javax.swing.JDialog {
                 tiempoparaatras();
             }
         } else {
+            marcarrespuesra();
             conterrores++;
             switch (simbolo) {
                 case "+":
@@ -1992,6 +2066,7 @@ public class dificultaddificil extends javax.swing.JDialog {
                 tiempoparaatras();
             }
         } else {
+            marcarrespuesra();
             conterrores++;
             switch (simbolo) {
                 case "+":
@@ -2068,6 +2143,7 @@ public class dificultaddificil extends javax.swing.JDialog {
                 tiempoparaatras();
             }
         } else {
+            marcarrespuesra();
             conterrores++;
             switch (simbolo) {
                 case "+":
@@ -2148,6 +2224,7 @@ public class dificultaddificil extends javax.swing.JDialog {
                 tiempoparaatras();
             }
         } else {
+            marcarrespuesra();
             conterrores++;
             switch (simbolo) {
                 case "+":
@@ -2224,6 +2301,7 @@ public class dificultaddificil extends javax.swing.JDialog {
                 tiempoparaatras();
             }
         } else {
+            marcarrespuesra();
             conterrores++;
             switch (simbolo) {
                 case "+":
@@ -2300,6 +2378,7 @@ public class dificultaddificil extends javax.swing.JDialog {
                 tiempoparaatras();
             }
         } else {
+            marcarrespuesra();
             conterrores++;
             switch (simbolo) {
                 case "+":
@@ -2381,6 +2460,7 @@ public class dificultaddificil extends javax.swing.JDialog {
                 tiempoparaatras();
             }
         } else {
+            marcarrespuesra();
             conterrores++;
             switch (simbolo) {
                 case "+":
@@ -2458,6 +2538,7 @@ public class dificultaddificil extends javax.swing.JDialog {
                 tiempoparaatras();
             }
         } else {
+            marcarrespuesra();
             conterrores++;
             switch (simbolo) {
                 case "+":
@@ -2535,6 +2616,7 @@ public class dificultaddificil extends javax.swing.JDialog {
                 tiempoparaatras();
             }
         } else {
+            marcarrespuesra();
             conterrores++;
             switch (simbolo) {
                 case "+":
@@ -2612,6 +2694,7 @@ public class dificultaddificil extends javax.swing.JDialog {
                 tiempoparaatras();
             }
         } else {
+            marcarrespuesra();
             conterrores++;
             switch (simbolo) {
                 case "+":
@@ -2689,6 +2772,7 @@ public class dificultaddificil extends javax.swing.JDialog {
                 tiempoparaatras();
             }
         } else {
+            marcarrespuesra();
             conterrores++;
             switch (simbolo) {
                 case "+":
@@ -2766,6 +2850,7 @@ public class dificultaddificil extends javax.swing.JDialog {
                 tiempoparaatras();
             }
         } else {
+            marcarrespuesra();
             conterrores++;
             switch (simbolo) {
                 case "+":
@@ -2843,6 +2928,7 @@ public class dificultaddificil extends javax.swing.JDialog {
                 tiempoparaatras();
             }
         } else {
+            marcarrespuesra();
             conterrores++;
             switch (simbolo) {
                 case "+":
