@@ -16,19 +16,17 @@ import javax.swing.Timer;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author gatsuxolotl
  */
 public class dificultadfacil extends javax.swing.JDialog {
-    int selector=0,respuesta,selector2,limite1,limite2,cont=0,
-             operador1,operador2,contsum=0, contrest=0, contmult=0,
-             contdiv=0,contadorSegundos=5,botoncontenedor,contadortotal
-             ,contsumacierto=0, contrestacierto=0, contmultacierto=0,contdivacierto=0
-             ,contsumerror=0, contresterror=0, contmulterror=0,contdiverror=0,
-             conterrores=0,contaciertos=0;
-     String simbolo=" ";
+
+    int selector = 0, respuesta, selector2, limite1, limite2, cont = 0,
+            operador1, operador2, contsum = 0, contrest = 0, contmult = 0,
+            contdiv = 0, contadorSegundos = 5, botoncontenedor, contadortotal, contsumacierto = 0, contrestacierto = 0, contmultacierto = 0, contdivacierto = 0, contsumerror = 0, contresterror = 0, contmulterror = 0, contdiverror = 0,
+            conterrores = 0, contaciertos = 0;
+    String simbolo = " ";
     Random rnd = new Random();
     Timer time;
 
@@ -41,207 +39,206 @@ public class dificultadfacil extends javax.swing.JDialog {
         quitaacciones();
     }
 
-     public class iconosangre implements Icon{
- 
-    @Override
-    public void paintIcon(Component c, Graphics g, int x, int y) {
-        Image image = new ImageIcon(getClass().getResource("sangre.png")).getImage();
-        g.drawImage(image, x, y, c);
-    }
- 
-    @Override
-    public int getIconWidth() {
-        return 50;
-    }
- 
-    @Override
-    public int getIconHeight() {
-        return 50;
-    }
- 
-}
-    
-    public class iconotierra implements Icon{
- 
-    @Override
-    public void paintIcon(Component c, Graphics g, int x, int y) {
-        Image image = new ImageIcon(getClass().getResource("tierra.png")).getImage();
-        g.drawImage(image, x, y, c);
-    }
- 
-    @Override
-    public int getIconWidth() {
-        return 50;
-    }
- 
-    @Override
-    public int getIconHeight() {
-        return 50;
-    }
- 
-}
-    
-    public class iconoagua implements Icon{
- 
-    @Override
-    public void paintIcon(Component c, Graphics g, int x, int y) {
-        Image image = new ImageIcon(getClass().getResource("agua.png")).getImage();
-        g.drawImage(image, x, y, c);
-    }
- 
-    @Override
-    public int getIconWidth() {
-        return 50;
-    }
- 
-    @Override
-    public int getIconHeight() {
-        return 50;
-    }
- 
-}
-    
-    public class iconofuego implements Icon{
- 
-    @Override
-    public void paintIcon(Component c, Graphics g, int x, int y) {
-        Image image = new ImageIcon(getClass().getResource("fuego.png")).getImage();
-        g.drawImage(image, x, y, c);
-    }
- 
-    @Override
-    public int getIconWidth() {
-        return 50;
-    }
- 
-    @Override
-    public int getIconHeight() {
-        return 50;
-    }
- 
-}
-    
-    public void botones(int respuesta){
-        int alazar[]=new int [4],selectorbotones,exp,repetidos[]=new int [4],
-                temp=0,arregloboton[]=new int [4],i=0,contadorrep=0,fnl=0;
-        String numazar="",temp2="";
-        limite1=respuesta+10;
-        limite2=respuesta-10;
-            //(int)(Math.random()*(HASTA-DESDE+1)+DESDE);
-            //asigno lugal aleatorio dentro del array para la respuesta
-            exp=(int)(Math.random()*(3-0+1)+0);
-            botoncontenedor=exp;
-            arregloboton[exp]=respuesta;
-            do {
-                if (respuesta%2==0) {
-                    exp=(int)(Math.random()*(limite1-limite2+1)+limite2);
-                    if (exp%2==0) {
-                        
-                    } else {
-                        exp=0;
-                    }
-                } else {
-                    exp=(int)(Math.random()*(limite1-limite2+1)+limite2);
-                    if (exp%2!=0) {
-                        
-                    } else {
-                        exp=0;
-                    }
-                }
-                for (int j = 0; j < arregloboton.length; j++) {
-                    if (arregloboton[j]!=exp) {
-                        contadorrep++;
-                    }
-                }
-                if (arregloboton[i]!=respuesta&&contadorrep==4&&arregloboton[i]==0) {
-                    arregloboton[i]=exp;
-                    fnl++;
-                }
-            i++;
-                if (i==4) {
-                    i=0;
-                }
-            contadorrep=0;
-        } while (fnl!=3);
-            jButton1.setText(Integer.toString(operador1));
-            jButton2.setText(simbolo);
-            jButton3.setText(Integer.toString(operador2));
-            jButton4.setText(Integer.toString(arregloboton[0]));
-            jButton5.setText(Integer.toString(arregloboton[1]));
-            jButton7.setText(Integer.toString(arregloboton[2]));
-            jButton8.setText(Integer.toString(arregloboton[3]));
-            
-            /*for (int j = 0; j < arregloboton.length; j++) {
-                System.out.println(arregloboton[j]);
-            
-        }*/
-        
+    public class iconosangre implements Icon {
+
+        @Override
+        public void paintIcon(Component c, Graphics g, int x, int y) {
+            Image image = new ImageIcon(getClass().getResource("sangre.png")).getImage();
+            g.drawImage(image, x, y, c);
+        }
+
+        @Override
+        public int getIconWidth() {
+            return 50;
+        }
+
+        @Override
+        public int getIconHeight() {
+            return 50;
+        }
+
     }
 
-    public int suma(){
-        //(int)(Math.random()*(HASTA-DESDE+1)+DESDE);
-       operador1=(int)(Math.random()*(999-100+1)+100);
-       operador2=(int)(Math.random()*(99-10+1)+10);
-       respuesta=operador1+operador2;
-        System.out.println(operador1+"+"+operador2+"="+respuesta);
-    return(respuesta);
+    public class iconotierra implements Icon {
+
+        @Override
+        public void paintIcon(Component c, Graphics g, int x, int y) {
+            Image image = new ImageIcon(getClass().getResource("tierra.png")).getImage();
+            g.drawImage(image, x, y, c);
+        }
+
+        @Override
+        public int getIconWidth() {
+            return 50;
+        }
+
+        @Override
+        public int getIconHeight() {
+            return 50;
+        }
+
     }
-    
-    public int resta(){
-        //(int)(Math.random()*(HASTA-DESDE+1)+DESDE);
-       operador1=(int)(Math.random()*(999-100+1)+100);
-       operador2=(int)(Math.random()*(99-10+1)+10);
-       respuesta=operador1-operador2;
-        System.out.println(operador1+"-"+operador2+"="+respuesta);
-    return(respuesta);
+
+    public class iconoagua implements Icon {
+
+        @Override
+        public void paintIcon(Component c, Graphics g, int x, int y) {
+            Image image = new ImageIcon(getClass().getResource("agua.png")).getImage();
+            g.drawImage(image, x, y, c);
+        }
+
+        @Override
+        public int getIconWidth() {
+            return 50;
+        }
+
+        @Override
+        public int getIconHeight() {
+            return 50;
+        }
+
     }
-    
-    public int multiplicacion(){
-        //(int)(Math.random()*(HASTA-DESDE+1)+DESDE);
-       operador1=(int)(Math.random()*(500-100+1)+100);
-       operador2=(int)(Math.random()*(9-2+1)+2);
-       respuesta=operador1*operador2;
-        System.out.println(operador1+"*"+operador2+"="+respuesta);
-    return(respuesta);
+
+    public class iconofuego implements Icon {
+
+        @Override
+        public void paintIcon(Component c, Graphics g, int x, int y) {
+            Image image = new ImageIcon(getClass().getResource("fuego.png")).getImage();
+            g.drawImage(image, x, y, c);
+        }
+
+        @Override
+        public int getIconWidth() {
+            return 50;
+        }
+
+        @Override
+        public int getIconHeight() {
+            return 50;
+        }
+
     }
-    
-    public int divicion(){
-        //(int)(Math.random()*(HASTA-DESDE+1)+DESDE);
-        do {            
-       operador1=(int)(Math.random()*(999-200+1)+200);
-       operador2=(int)(Math.random()*(9-2+1)+2);
-       respuesta=operador1/operador2;
-        } while (operador1%operador2!=0);
-        System.out.println(operador1+"/"+operador2+"="+respuesta);
-    return(respuesta);
-    }
-    
-    public void principia(){
-     int operaciones[]={0,1,2,3};
-        
-        //assigno bandera para quitar operaciones completadas
-        if (contsum==5) {
-            operaciones[0]=-99;
-       }
-        if (contrest==5) {
-            operaciones[1]=-99;
-       }
-        if (contmult==5) {
-            operaciones[2]=-99;
-       }
-        if (contdiv==5) {
-            operaciones[3]=-99;
-       }
-        
-        do {       
-            selector=rnd.nextInt(4);
-            selector2=operaciones[selector];
-            cont++;
-            if (cont==4) {
-                cont=0;
+
+    public void botones(int respuesta) {
+        int alazar[] = new int[4], selectorbotones, exp, repetidos[] = new int[4],
+                temp = 0, arregloboton[] = new int[4], i = 0, contadorrep = 0, fnl = 0;
+        String numazar = "", temp2 = "";
+        limite1 = respuesta + 10;
+        limite2 = respuesta - 10;
+            //(int)(Math.random()*(HASTA-DESDE+1)+DESDE);
+        //asigno lugal aleatorio dentro del array para la respuesta
+        exp = (int) (Math.random() * (3 - 0 + 1) + 0);
+        botoncontenedor = exp;
+        arregloboton[exp] = respuesta;
+        do {
+            if (respuesta % 2 == 0) {
+                exp = (int) (Math.random() * (limite1 - limite2 + 1) + limite2);
+                if (exp % 2 == 0) {
+
+                } else {
+                    exp = 0;
+                }
+            } else {
+                exp = (int) (Math.random() * (limite1 - limite2 + 1) + limite2);
+                if (exp % 2 != 0) {
+
+                } else {
+                    exp = 0;
+                }
             }
-        } while (selector2==-99);
-        
+            for (int j = 0; j < arregloboton.length; j++) {
+                if (arregloboton[j] != exp) {
+                    contadorrep++;
+                }
+            }
+            if (arregloboton[i] != respuesta && contadorrep == 4 && arregloboton[i] == 0) {
+                arregloboton[i] = exp;
+                fnl++;
+            }
+            i++;
+            if (i == 4) {
+                i = 0;
+            }
+            contadorrep = 0;
+        } while (fnl != 3);
+        jButton1.setText(Integer.toString(operador1));
+        jButton2.setText(simbolo);
+        jButton3.setText(Integer.toString(operador2));
+        jButton4.setText(Integer.toString(arregloboton[0]));
+        jButton5.setText(Integer.toString(arregloboton[1]));
+        jButton7.setText(Integer.toString(arregloboton[2]));
+        jButton8.setText(Integer.toString(arregloboton[3]));
+
+        /*for (int j = 0; j < arregloboton.length; j++) {
+         System.out.println(arregloboton[j]);
+            
+         }*/
+    }
+
+    public int suma() {
+        //(int)(Math.random()*(HASTA-DESDE+1)+DESDE);
+        operador1 = (int) (Math.random() * (999 - 100 + 1) + 100);
+        operador2 = (int) (Math.random() * (99 - 10 + 1) + 10);
+        respuesta = operador1 + operador2;
+        System.out.println(operador1 + "+" + operador2 + "=" + respuesta);
+        return (respuesta);
+    }
+
+    public int resta() {
+        //(int)(Math.random()*(HASTA-DESDE+1)+DESDE);
+        operador1 = (int) (Math.random() * (999 - 100 + 1) + 100);
+        operador2 = (int) (Math.random() * (99 - 10 + 1) + 10);
+        respuesta = operador1 - operador2;
+        System.out.println(operador1 + "-" + operador2 + "=" + respuesta);
+        return (respuesta);
+    }
+
+    public int multiplicacion() {
+        //(int)(Math.random()*(HASTA-DESDE+1)+DESDE);
+        operador1 = (int) (Math.random() * (500 - 100 + 1) + 100);
+        operador2 = (int) (Math.random() * (9 - 2 + 1) + 2);
+        respuesta = operador1 * operador2;
+        System.out.println(operador1 + "*" + operador2 + "=" + respuesta);
+        return (respuesta);
+    }
+
+    public int divicion() {
+        //(int)(Math.random()*(HASTA-DESDE+1)+DESDE);
+        do {
+            operador1 = (int) (Math.random() * (999 - 200 + 1) + 200);
+            operador2 = (int) (Math.random() * (9 - 2 + 1) + 2);
+            respuesta = operador1 / operador2;
+        } while (operador1 % operador2 != 0);
+        System.out.println(operador1 + "/" + operador2 + "=" + respuesta);
+        return (respuesta);
+    }
+
+    public void principia() {
+        int operaciones[] = {0, 1, 2, 3};
+
+        //assigno bandera para quitar operaciones completadas
+        if (contsum == 5) {
+            operaciones[0] = -99;
+        }
+        if (contrest == 5) {
+            operaciones[1] = -99;
+        }
+        if (contmult == 5) {
+            operaciones[2] = -99;
+        }
+        if (contdiv == 5) {
+            operaciones[3] = -99;
+        }
+
+        do {
+            selector = rnd.nextInt(4);
+            selector2 = operaciones[selector];
+            cont++;
+            if (cont == 4) {
+                cont = 0;
+            }
+        } while (selector2 == -99);
+
         switch (selector2) {
             case 0:
                 contsum++;
@@ -254,7 +251,7 @@ public class dificultadfacil extends javax.swing.JDialog {
                 jButton8.setForeground(Color.red);
                 jButton13.setForeground(Color.red);
                 jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sangre.png")));
-                simbolo="+";
+                simbolo = "+";
                 botones(suma());
                 System.out.println("suma");
                 System.out.println(contsum);
@@ -270,7 +267,7 @@ public class dificultadfacil extends javax.swing.JDialog {
                 jButton8.setForeground(Color.green);
                 jButton13.setForeground(Color.green);
                 jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tierra.png")));
-                simbolo="-";
+                simbolo = "-";
                 botones(resta());
                 System.out.println("resta");
                 System.out.println(contrest);
@@ -286,7 +283,7 @@ public class dificultadfacil extends javax.swing.JDialog {
                 jButton8.setForeground(Color.blue);
                 jButton13.setForeground(Color.blue);
                 jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agua.png")));
-                simbolo="X";
+                simbolo = "X";
                 botones(multiplicacion());
                 System.out.println("multi");
                 System.out.println(contmult);
@@ -302,7 +299,7 @@ public class dificultadfacil extends javax.swing.JDialog {
                 jButton8.setForeground(Color.gray);
                 jButton13.setForeground(Color.gray);
                 jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fuego.png")));
-                simbolo="/";
+                simbolo = "/";
                 botones(divicion());
                 System.out.println("divi");
                 System.out.println(contdiv);
@@ -312,10 +309,10 @@ public class dificultadfacil extends javax.swing.JDialog {
             default:
         }
     }
-    
-    public void cambiasombras(){
-        jButton21.setText("Elemtos "+contaciertos+" de 20");
-        jButton29.setText("Elemtos "+conterrores+" de 20");
+
+    public void cambiasombras() {
+        jButton21.setText("Elemtos " + contaciertos + " de 20");
+        jButton29.setText("Elemtos " + conterrores + " de 20");
         switch (contaciertos) {
             case 1:
                 jButton22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/barra1.png")));
@@ -450,19 +447,19 @@ public class dificultadfacil extends javax.swing.JDialog {
                         break;
                     case 2:
                         jButton17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sangre.png")));
-                        
+
                         break;
                     case 3:
                         jButton18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sangre.png")));
-                        
+
                         break;
                     case 4:
                         jButton19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sangre.png")));
-                        
+
                         break;
                     case 5:
                         jButton20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sangre.png")));
-                        
+
                         break;
                     default:
                 }
@@ -474,19 +471,19 @@ public class dificultadfacil extends javax.swing.JDialog {
                         break;
                     case 2:
                         jButton32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tierra.png")));
-                        
+
                         break;
                     case 3:
                         jButton33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tierra.png")));
-                        
+
                         break;
                     case 4:
                         jButton34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tierra.png")));
-                        
+
                         break;
                     case 5:
                         jButton35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tierra.png")));
-                        
+
                         break;
                     default:
                 }
@@ -498,43 +495,43 @@ public class dificultadfacil extends javax.swing.JDialog {
                         break;
                     case 2:
                         jButton42.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agua.png")));
-                        
+
                         break;
                     case 3:
                         jButton43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agua.png")));
-                        
+
                         break;
                     case 4:
                         jButton44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agua.png")));
-                        
+
                         break;
                     case 5:
                         jButton45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agua.png")));
-                        
+
                         break;
                     default:
                 }
                 break;
             case "/":
-                 switch (contdivacierto) {
+                switch (contdivacierto) {
                     case 1:
                         jButton36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fuego.png")));
                         break;
                     case 2:
                         jButton37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fuego.png")));
-                        
+
                         break;
                     case 3:
                         jButton38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fuego.png")));
-                        
+
                         break;
                     case 4:
                         jButton39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fuego.png")));
-                        
+
                         break;
                     case 5:
                         jButton40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fuego.png")));
-                        
+
                         break;
                     default:
                 }
@@ -542,7 +539,7 @@ public class dificultadfacil extends javax.swing.JDialog {
             default:
                 throw new AssertionError();
         }
-        
+
         switch (simbolo) {
             case "+":
                 switch (contsumerror) {
@@ -551,19 +548,19 @@ public class dificultadfacil extends javax.swing.JDialog {
                         break;
                     case 2:
                         jButton24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sangre.png")));
-                        
+
                         break;
                     case 3:
                         jButton25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sangre.png")));
-                        
+
                         break;
                     case 4:
                         jButton26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sangre.png")));
-                        
+
                         break;
                     case 5:
                         jButton27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sangre.png")));
-                        
+
                         break;
                     default:
                 }
@@ -575,19 +572,19 @@ public class dificultadfacil extends javax.swing.JDialog {
                         break;
                     case 2:
                         jButton47.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tierra.png")));
-                        
+
                         break;
                     case 3:
                         jButton48.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tierra.png")));
-                        
+
                         break;
                     case 4:
                         jButton49.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tierra.png")));
-                        
+
                         break;
                     case 5:
                         jButton50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tierra.png")));
-                        
+
                         break;
                     default:
                 }
@@ -599,43 +596,43 @@ public class dificultadfacil extends javax.swing.JDialog {
                         break;
                     case 2:
                         jButton57.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agua.png")));
-                        
+
                         break;
                     case 3:
                         jButton58.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agua.png")));
-                        
+
                         break;
                     case 4:
                         jButton59.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agua.png")));
-                        
+
                         break;
                     case 5:
                         jButton60.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agua.png")));
-                        
+
                         break;
                     default:
                 }
                 break;
             case "/":
-                 switch (contdiverror) {
+                switch (contdiverror) {
                     case 1:
                         jButton51.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fuego.png")));
                         break;
                     case 2:
                         jButton52.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fuego.png")));
-                        
+
                         break;
                     case 3:
                         jButton53.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fuego.png")));
-                        
+
                         break;
                     case 4:
                         jButton54.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fuego.png")));
-                        
+
                         break;
                     case 5:
                         jButton55.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fuego.png")));
-                        
+
                         break;
                     default:
                 }
@@ -643,137 +640,137 @@ public class dificultadfacil extends javax.swing.JDialog {
             default:
         }
     }
-    
-    public void tiempoparaatras(){
-        contadorSegundos=5;
-    time = new Timer(1000, new ActionListener(){
-        @Override
-        public void actionPerformed(ActionEvent e){
-        jButton13.setText(":5");
-        contadorSegundos--;
-        jButton13.setText(contadorSegundos+"");
-            if (contadorSegundos==0) {
-                conterrores++;
-                switch (botoncontenedor) {
-                    case 0:
+
+    public void tiempoparaatras() {
+        contadorSegundos = 5;
+        time = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jButton13.setText(":5");
+                contadorSegundos--;
+                jButton13.setText(contadorSegundos + "");
+                if (contadorSegundos == 0) {
+                    conterrores++;
+                    switch (botoncontenedor) {
+                        case 0:
 //                        jButton4.setForeground(Color.pink);
-                        jButton4.setBackground(new java.awt.Color(255, 0, 255));
-                        break;
-                    case 1:
+                            jButton4.setBackground(new java.awt.Color(255, 0, 255));
+                            break;
+                        case 1:
 //                        jButton5.setForeground(Color.pink);
-                        jButton5.setBackground(new java.awt.Color(255, 0, 255));
-                        break;
-                    case 2:
+                            jButton5.setBackground(new java.awt.Color(255, 0, 255));
+                            break;
+                        case 2:
 //                        jButton7.setForeground(Color.pink);
-                        jButton7.setBackground(new java.awt.Color(255, 0, 255));
-                        break;
-                    case 3:
+                            jButton7.setBackground(new java.awt.Color(255, 0, 255));
+                            break;
+                        case 3:
 //                        jButton8.setForeground(Color.pink);
-                        jButton8.setBackground(new java.awt.Color(255, 0, 255));
-                        break;
-                    default:
+                            jButton8.setBackground(new java.awt.Color(255, 0, 255));
+                            break;
+                        default:
+                    }
+                    time.stop();
+                    quitaacciones();
+                    repaint();
+                    switch (simbolo) {
+                        case "+":
+                            contsumerror++;
+                            break;
+                        case "-":
+                            contresterror++;
+                            break;
+                        case "X":
+                            contmulterror++;
+                            break;
+                        case "/":
+                            contdiverror++;
+                            break;
+                        default:
+                    }
+                    cambiasombras();
+                    switch (simbolo) {
+                        case "+":
+                            iconosangre sang = new iconosangre();
+                            JOptionPane.showMessageDialog(null, "¡Tiempo agotado pierdes sangre!", "Acierto", JOptionPane.DEFAULT_OPTION, sang);
+
+                            break;
+                        case "-":
+                            iconotierra tierr = new iconotierra();
+                            JOptionPane.showMessageDialog(null, "¡Tiempo agotado pierdes tierra!", "Acierto", JOptionPane.DEFAULT_OPTION, tierr);
+                            break;
+                        case "X":
+                            iconoagua agu = new iconoagua();
+                            JOptionPane.showMessageDialog(null, "¡Tiempo agotado pierdes agua!", "Acierto", JOptionPane.DEFAULT_OPTION, agu);
+                            break;
+                        case "/":
+                            iconofuego fueg = new iconofuego();
+                            JOptionPane.showMessageDialog(null, "¡Tiempo agotado pierdes fuego!", "Acierto", JOptionPane.DEFAULT_OPTION, fueg);
+                            break;
+                        default:
+                    }
+                    quitamarcas();
+                    agregaacciones();
+                    repaint();
+                    contadorSegundos = 5;
+                    if (contaciertos + conterrores == 20) {
+                        findeljuego();
+                    } else {
+                        principia();
+                        tiempoparaatras();
+                    }
+                    System.out.println("olakase");
                 }
-                time.stop();
-                quitaacciones();
-                repaint();
-                 switch (simbolo) {
-                    case "+":
-                        contsumerror++;
-                        break;
-                    case "-":
-                        contresterror++;
-                        break;
-                    case "X":
-                        contmulterror++;
-                        break;
-                    case "/":
-                        contdiverror++;
-                        break;
-                    default:
-                }
-                 cambiasombras();
-                 switch (simbolo) {
-                case "+":
-                    iconosangre sang = new iconosangre();
-                    JOptionPane.showMessageDialog(null, "¡Tiempo agotado pierdes sangre!", "Acierto", JOptionPane.DEFAULT_OPTION, sang);
-                    
-                break;
-                case "-":
-                    iconotierra tierr = new iconotierra();
-                    JOptionPane.showMessageDialog(null, "¡Tiempo agotado pierdes tierra!", "Acierto", JOptionPane.DEFAULT_OPTION, tierr);
-                break;
-                case "X":
-                    iconoagua agu = new iconoagua();
-                    JOptionPane.showMessageDialog(null, "¡Tiempo agotado pierdes agua!", "Acierto", JOptionPane.DEFAULT_OPTION, agu);
-                break;
-                case "/":
-                    iconofuego fueg = new iconofuego();
-                    JOptionPane.showMessageDialog(null, "¡Tiempo agotado pierdes fuego!", "Acierto", JOptionPane.DEFAULT_OPTION, fueg);
-                break;
-                default:
             }
-                 quitamarcas();
-                 agregaacciones();
-                repaint();
-                 contadorSegundos=5;
-                 if (contaciertos+conterrores==20) {
-                findeljuego();
-            } else {
-                principia();
-                tiempoparaatras();
-            }
-                 System.out.println("olakase");
-            }
-        }
-    
-    });
-    time.start();
+
+        });
+        time.start();
     }
-    
-    public void quitaacciones(){
+
+    public void quitaacciones() {
         jButton4.removeNotify();
         jButton5.removeNotify();
         jButton7.removeNotify();
         jButton8.removeNotify();
     }
-    
-    public void agregaacciones(){
+
+    public void agregaacciones() {
         jButton4.addNotify();
         jButton5.addNotify();
         jButton7.addNotify();
         jButton8.addNotify();
     }
-    
-    public void quitamarcas(){
-    jButton4.setBackground(new java.awt.Color(240, 240, 240));
-    jButton5.setBackground(new java.awt.Color(240, 240, 240));
-    jButton7.setBackground(new java.awt.Color(240, 240, 240));
-    jButton8.setBackground(new java.awt.Color(240, 240, 240));
+
+    public void quitamarcas() {
+        jButton4.setBackground(new java.awt.Color(240, 240, 240));
+        jButton5.setBackground(new java.awt.Color(240, 240, 240));
+        jButton7.setBackground(new java.awt.Color(240, 240, 240));
+        jButton8.setBackground(new java.awt.Color(240, 240, 240));
     }
-    
-    public void findeljuego(){
-        
-        
-        if (contaciertos>conterrores) {
-            if (contaciertos==20) {
-            JOptionPane.showMessageDialog(null, "¡Victoria!\n\nfantastico no comestiste un solo error");
-        }else{
-            JOptionPane.showMessageDialog(null, "¡Victoria!\n\nAciertos\nSuma: "+contsumacierto+"\nResta: "+contrestacierto+"\nMultiplicación: "+contmultacierto+"\nDivición: "+contdivacierto+"\n\nErrores\nSuma: "+contsumerror+"\nResta: "+contresterror+"\nMultiplicación: "+contmulterror+"\nDivición: "+contdiverror);
+
+    public void findeljuego() {
+
+        if (contaciertos > conterrores) {
+            if (contaciertos == 20) {
+                JOptionPane.showMessageDialog(null, "¡Victoria!\n\nfantastico no comestiste un solo error");
+            } else {
+                JOptionPane.showMessageDialog(null, "¡Victoria!\n\nAciertos\nSuma: " + contsumacierto + "\nResta: " + contrestacierto + "\nMultiplicación: " + contmultacierto + "\nDivición: " + contdivacierto + "\n\nErrores\nSuma: " + contsumerror + "\nResta: " + contresterror + "\nMultiplicación: " + contmulterror + "\nDivición: " + contdiverror);
             }
         }
-        if (contaciertos<conterrores) {
-            if (conterrores==20) {
-            JOptionPane.showMessageDialog(null, "¡Derrota!\n\npatetico no acertaste ni una sola");
-        }else{
-            JOptionPane.showMessageDialog(null, "¡Derrota!\n\nAciertos\nSuma: "+contsumacierto+"\nResta: "+contrestacierto+"\nMultiplicación: "+contmultacierto+"\nDivición: "+contdivacierto+"\n\nErrores\nSuma: "+contsumerror+"\nResta: "+contresterror+"\nMultiplicación: "+contmulterror+"\nDivición: "+contdiverror);
+        if (contaciertos < conterrores) {
+            if (conterrores == 20) {
+                JOptionPane.showMessageDialog(null, "¡Derrota!\n\npatetico no acertaste ni una sola");
+            } else {
+                JOptionPane.showMessageDialog(null, "¡Derrota!\n\nAciertos\nSuma: " + contsumacierto + "\nResta: " + contrestacierto + "\nMultiplicación: " + contmultacierto + "\nDivición: " + contdivacierto + "\n\nErrores\nSuma: " + contsumerror + "\nResta: " + contresterror + "\nMultiplicación: " + contmulterror + "\nDivición: " + contdiverror);
             }
         }
-        if (contaciertos==conterrores) {
-            JOptionPane.showMessageDialog(null, "¡Empate!\n\ncasi victoria|casi derrota\n\nAciertos\nSuma: "+contsumacierto+"\nResta: "+contrestacierto+"\nMultiplicación: "+contmultacierto+"\nDivición: "+contdivacierto+"\n\nErrores\nSuma: "+contsumerror+"\nResta: "+contresterror+"\nMultiplicación: "+contmulterror+"\nDivición: "+contdiverror);
+        if (contaciertos == conterrores) {
+            JOptionPane.showMessageDialog(null, "¡Empate!\n\ncasi victoria|casi derrota\n\nAciertos\nSuma: " + contsumacierto + "\nResta: " + contrestacierto + "\nMultiplicación: " + contmultacierto + "\nDivición: " + contdivacierto + "\n\nErrores\nSuma: " + contsumerror + "\nResta: " + contresterror + "\nMultiplicación: " + contmulterror + "\nDivición: " + contdiverror);
         }
-    JOptionPane.showMessageDialog(null, "Fin del juego");
-    quitaacciones();
+        JOptionPane.showMessageDialog(null, "Fin del juego");
+        quitaacciones();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1316,72 +1313,72 @@ public class dificultadfacil extends javax.swing.JDialog {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         time.stop();
-        if (jButton4.getText().equals(Integer.toString(respuesta))) {
+        if (jButton5.getText().equals(Integer.toString(respuesta))) {
             contaciertos++;
             switch (simbolo) {
                 case "+":
-                contsumacierto++;
-                cambiasombras();
-                iconosangre sang = new iconosangre();
-                JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas sangre!", "Acierto", JOptionPane.DEFAULT_OPTION, sang);
+                    contsumacierto++;
+                    cambiasombras();
+                    iconosangre sang = new iconosangre();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas sangre!", "Acierto", JOptionPane.DEFAULT_OPTION, sang);
 
-                break;
+                    break;
                 case "-":
-                contrestacierto++;
-                cambiasombras();
-                iconotierra tierr = new iconotierra();
-                JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas tierra!", "Acierto", JOptionPane.DEFAULT_OPTION, tierr);
-                break;
+                    contrestacierto++;
+                    cambiasombras();
+                    iconotierra tierr = new iconotierra();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas tierra!", "Acierto", JOptionPane.DEFAULT_OPTION, tierr);
+                    break;
                 case "X":
-                contmultacierto++;
-                cambiasombras();
-                iconoagua agu = new iconoagua();
-                JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas agua!", "Acierto", JOptionPane.DEFAULT_OPTION, agu);
-                break;
+                    contmultacierto++;
+                    cambiasombras();
+                    iconoagua agu = new iconoagua();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas agua!", "Acierto", JOptionPane.DEFAULT_OPTION, agu);
+                    break;
                 case "/":
-                contdivacierto++;
-                cambiasombras();
-                iconofuego fueg = new iconofuego();
-                JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas fuego!", "Acierto", JOptionPane.DEFAULT_OPTION, fueg);
-                break;
+                    contdivacierto++;
+                    cambiasombras();
+                    iconofuego fueg = new iconofuego();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas fuego!", "Acierto", JOptionPane.DEFAULT_OPTION, fueg);
+                    break;
                 default:
             }
-            if (contaciertos+conterrores==20) {
+            if (contaciertos + conterrores == 20) {
                 findeljuego();
             } else {
                 principia();
                 tiempoparaatras();
             }
-        }else{
+        } else {
             conterrores++;
             switch (simbolo) {
                 case "+":
-                contsumerror++;
-                cambiasombras();
-                iconosangre sang = new iconosangre();
-                JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes sangre!", "Error", JOptionPane.DEFAULT_OPTION, sang);
-                break;
+                    contsumerror++;
+                    cambiasombras();
+                    iconosangre sang = new iconosangre();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes sangre!", "Error", JOptionPane.DEFAULT_OPTION, sang);
+                    break;
                 case "-":
-                contresterror++;
-                cambiasombras();
-                iconotierra tierr = new iconotierra();
-                JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes tierra!", "Error", JOptionPane.DEFAULT_OPTION, tierr);
-                break;
+                    contresterror++;
+                    cambiasombras();
+                    iconotierra tierr = new iconotierra();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes tierra!", "Error", JOptionPane.DEFAULT_OPTION, tierr);
+                    break;
                 case "X":
-                contmulterror++;
-                cambiasombras();
-                iconoagua agu = new iconoagua();
-                JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes agua!", "Error", JOptionPane.DEFAULT_OPTION, agu);
-                break;
+                    contmulterror++;
+                    cambiasombras();
+                    iconoagua agu = new iconoagua();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes agua!", "Error", JOptionPane.DEFAULT_OPTION, agu);
+                    break;
                 case "/":
-                contdiverror++;
-                cambiasombras();
-                iconofuego fueg = new iconofuego();
-                JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes fuego!", "Error", JOptionPane.DEFAULT_OPTION, fueg);
-                break;
+                    contdiverror++;
+                    cambiasombras();
+                    iconofuego fueg = new iconofuego();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes fuego!", "Error", JOptionPane.DEFAULT_OPTION, fueg);
+                    break;
                 default:
             }
-            if (contaciertos+conterrores==20) {
+            if (contaciertos + conterrores == 20) {
                 findeljuego();
             } else {
                 principia();
@@ -1404,72 +1401,72 @@ public class dificultadfacil extends javax.swing.JDialog {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         time.stop();
-        if (jButton4.getText().equals(Integer.toString(respuesta))) {
+        if (jButton7.getText().equals(Integer.toString(respuesta))) {
             contaciertos++;
             switch (simbolo) {
                 case "+":
-                contsumacierto++;
-                cambiasombras();
-                iconosangre sang = new iconosangre();
-                JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas sangre!", "Acierto", JOptionPane.DEFAULT_OPTION, sang);
+                    contsumacierto++;
+                    cambiasombras();
+                    iconosangre sang = new iconosangre();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas sangre!", "Acierto", JOptionPane.DEFAULT_OPTION, sang);
 
-                break;
+                    break;
                 case "-":
-                contrestacierto++;
-                cambiasombras();
-                iconotierra tierr = new iconotierra();
-                JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas tierra!", "Acierto", JOptionPane.DEFAULT_OPTION, tierr);
-                break;
+                    contrestacierto++;
+                    cambiasombras();
+                    iconotierra tierr = new iconotierra();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas tierra!", "Acierto", JOptionPane.DEFAULT_OPTION, tierr);
+                    break;
                 case "X":
-                contmultacierto++;
-                cambiasombras();
-                iconoagua agu = new iconoagua();
-                JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas agua!", "Acierto", JOptionPane.DEFAULT_OPTION, agu);
-                break;
+                    contmultacierto++;
+                    cambiasombras();
+                    iconoagua agu = new iconoagua();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas agua!", "Acierto", JOptionPane.DEFAULT_OPTION, agu);
+                    break;
                 case "/":
-                contdivacierto++;
-                cambiasombras();
-                iconofuego fueg = new iconofuego();
-                JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas fuego!", "Acierto", JOptionPane.DEFAULT_OPTION, fueg);
-                break;
+                    contdivacierto++;
+                    cambiasombras();
+                    iconofuego fueg = new iconofuego();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas fuego!", "Acierto", JOptionPane.DEFAULT_OPTION, fueg);
+                    break;
                 default:
             }
-            if (contaciertos+conterrores==20) {
+            if (contaciertos + conterrores == 20) {
                 findeljuego();
             } else {
                 principia();
                 tiempoparaatras();
             }
-        }else{
+        } else {
             conterrores++;
             switch (simbolo) {
                 case "+":
-                contsumerror++;
-                cambiasombras();
-                iconosangre sang = new iconosangre();
-                JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes sangre!", "Error", JOptionPane.DEFAULT_OPTION, sang);
-                break;
+                    contsumerror++;
+                    cambiasombras();
+                    iconosangre sang = new iconosangre();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes sangre!", "Error", JOptionPane.DEFAULT_OPTION, sang);
+                    break;
                 case "-":
-                contresterror++;
-                cambiasombras();
-                iconotierra tierr = new iconotierra();
-                JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes tierra!", "Error", JOptionPane.DEFAULT_OPTION, tierr);
-                break;
+                    contresterror++;
+                    cambiasombras();
+                    iconotierra tierr = new iconotierra();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes tierra!", "Error", JOptionPane.DEFAULT_OPTION, tierr);
+                    break;
                 case "X":
-                contmulterror++;
-                cambiasombras();
-                iconoagua agu = new iconoagua();
-                JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes agua!", "Error", JOptionPane.DEFAULT_OPTION, agu);
-                break;
+                    contmulterror++;
+                    cambiasombras();
+                    iconoagua agu = new iconoagua();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes agua!", "Error", JOptionPane.DEFAULT_OPTION, agu);
+                    break;
                 case "/":
-                contdiverror++;
-                cambiasombras();
-                iconofuego fueg = new iconofuego();
-                JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes fuego!", "Error", JOptionPane.DEFAULT_OPTION, fueg);
-                break;
+                    contdiverror++;
+                    cambiasombras();
+                    iconofuego fueg = new iconofuego();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes fuego!", "Error", JOptionPane.DEFAULT_OPTION, fueg);
+                    break;
                 default:
             }
-            if (contaciertos+conterrores==20) {
+            if (contaciertos + conterrores == 20) {
                 findeljuego();
             } else {
                 principia();
@@ -1488,68 +1485,68 @@ public class dificultadfacil extends javax.swing.JDialog {
             contaciertos++;
             switch (simbolo) {
                 case "+":
-                contsumacierto++;
-                cambiasombras();
-                iconosangre sang = new iconosangre();
-                JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas sangre!", "Acierto", JOptionPane.DEFAULT_OPTION, sang);
+                    contsumacierto++;
+                    cambiasombras();
+                    iconosangre sang = new iconosangre();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas sangre!", "Acierto", JOptionPane.DEFAULT_OPTION, sang);
 
-                break;
+                    break;
                 case "-":
-                contrestacierto++;
-                cambiasombras();
-                iconotierra tierr = new iconotierra();
-                JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas tierra!", "Acierto", JOptionPane.DEFAULT_OPTION, tierr);
-                break;
+                    contrestacierto++;
+                    cambiasombras();
+                    iconotierra tierr = new iconotierra();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas tierra!", "Acierto", JOptionPane.DEFAULT_OPTION, tierr);
+                    break;
                 case "X":
-                contmultacierto++;
-                cambiasombras();
-                iconoagua agu = new iconoagua();
-                JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas agua!", "Acierto", JOptionPane.DEFAULT_OPTION, agu);
-                break;
+                    contmultacierto++;
+                    cambiasombras();
+                    iconoagua agu = new iconoagua();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas agua!", "Acierto", JOptionPane.DEFAULT_OPTION, agu);
+                    break;
                 case "/":
-                contdivacierto++;
-                cambiasombras();
-                iconofuego fueg = new iconofuego();
-                JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas fuego!", "Acierto", JOptionPane.DEFAULT_OPTION, fueg);
-                break;
+                    contdivacierto++;
+                    cambiasombras();
+                    iconofuego fueg = new iconofuego();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas fuego!", "Acierto", JOptionPane.DEFAULT_OPTION, fueg);
+                    break;
                 default:
             }
-            if (contaciertos+conterrores==20) {
+            if (contaciertos + conterrores == 20) {
                 findeljuego();
             } else {
                 principia();
                 tiempoparaatras();
             }
-        }else{
+        } else {
             conterrores++;
             switch (simbolo) {
                 case "+":
-                contsumerror++;
-                cambiasombras();
-                iconosangre sang = new iconosangre();
-                JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes sangre!", "Error", JOptionPane.DEFAULT_OPTION, sang);
-                break;
+                    contsumerror++;
+                    cambiasombras();
+                    iconosangre sang = new iconosangre();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes sangre!", "Error", JOptionPane.DEFAULT_OPTION, sang);
+                    break;
                 case "-":
-                contresterror++;
-                cambiasombras();
-                iconotierra tierr = new iconotierra();
-                JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes tierra!", "Error", JOptionPane.DEFAULT_OPTION, tierr);
-                break;
+                    contresterror++;
+                    cambiasombras();
+                    iconotierra tierr = new iconotierra();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes tierra!", "Error", JOptionPane.DEFAULT_OPTION, tierr);
+                    break;
                 case "X":
-                contmulterror++;
-                cambiasombras();
-                iconoagua agu = new iconoagua();
-                JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes agua!", "Error", JOptionPane.DEFAULT_OPTION, agu);
-                break;
+                    contmulterror++;
+                    cambiasombras();
+                    iconoagua agu = new iconoagua();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes agua!", "Error", JOptionPane.DEFAULT_OPTION, agu);
+                    break;
                 case "/":
-                contdiverror++;
-                cambiasombras();
-                iconofuego fueg = new iconofuego();
-                JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes fuego!", "Error", JOptionPane.DEFAULT_OPTION, fueg);
-                break;
+                    contdiverror++;
+                    cambiasombras();
+                    iconofuego fueg = new iconofuego();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes fuego!", "Error", JOptionPane.DEFAULT_OPTION, fueg);
+                    break;
                 default:
             }
-            if (contaciertos+conterrores==20) {
+            if (contaciertos + conterrores == 20) {
                 findeljuego();
             } else {
                 principia();
@@ -1560,72 +1557,72 @@ public class dificultadfacil extends javax.swing.JDialog {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         time.stop();
-        if (jButton4.getText().equals(Integer.toString(respuesta))) {
+        if (jButton8.getText().equals(Integer.toString(respuesta))) {
             contaciertos++;
             switch (simbolo) {
                 case "+":
-                contsumacierto++;
-                cambiasombras();
-                iconosangre sang = new iconosangre();
-                JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas sangre!", "Acierto", JOptionPane.DEFAULT_OPTION, sang);
+                    contsumacierto++;
+                    cambiasombras();
+                    iconosangre sang = new iconosangre();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas sangre!", "Acierto", JOptionPane.DEFAULT_OPTION, sang);
 
-                break;
+                    break;
                 case "-":
-                contrestacierto++;
-                cambiasombras();
-                iconotierra tierr = new iconotierra();
-                JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas tierra!", "Acierto", JOptionPane.DEFAULT_OPTION, tierr);
-                break;
+                    contrestacierto++;
+                    cambiasombras();
+                    iconotierra tierr = new iconotierra();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas tierra!", "Acierto", JOptionPane.DEFAULT_OPTION, tierr);
+                    break;
                 case "X":
-                contmultacierto++;
-                cambiasombras();
-                iconoagua agu = new iconoagua();
-                JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas agua!", "Acierto", JOptionPane.DEFAULT_OPTION, agu);
-                break;
+                    contmultacierto++;
+                    cambiasombras();
+                    iconoagua agu = new iconoagua();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas agua!", "Acierto", JOptionPane.DEFAULT_OPTION, agu);
+                    break;
                 case "/":
-                contdivacierto++;
-                cambiasombras();
-                iconofuego fueg = new iconofuego();
-                JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas fuego!", "Acierto", JOptionPane.DEFAULT_OPTION, fueg);
-                break;
+                    contdivacierto++;
+                    cambiasombras();
+                    iconofuego fueg = new iconofuego();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta correcta ganas fuego!", "Acierto", JOptionPane.DEFAULT_OPTION, fueg);
+                    break;
                 default:
             }
-            if (contaciertos+conterrores==20) {
+            if (contaciertos + conterrores == 20) {
                 findeljuego();
             } else {
                 principia();
                 tiempoparaatras();
             }
-        }else{
+        } else {
             conterrores++;
             switch (simbolo) {
                 case "+":
-                contsumerror++;
-                cambiasombras();
-                iconosangre sang = new iconosangre();
-                JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes sangre!", "Error", JOptionPane.DEFAULT_OPTION, sang);
-                break;
+                    contsumerror++;
+                    cambiasombras();
+                    iconosangre sang = new iconosangre();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes sangre!", "Error", JOptionPane.DEFAULT_OPTION, sang);
+                    break;
                 case "-":
-                contresterror++;
-                cambiasombras();
-                iconotierra tierr = new iconotierra();
-                JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes tierra!", "Error", JOptionPane.DEFAULT_OPTION, tierr);
-                break;
+                    contresterror++;
+                    cambiasombras();
+                    iconotierra tierr = new iconotierra();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes tierra!", "Error", JOptionPane.DEFAULT_OPTION, tierr);
+                    break;
                 case "X":
-                contmulterror++;
-                cambiasombras();
-                iconoagua agu = new iconoagua();
-                JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes agua!", "Error", JOptionPane.DEFAULT_OPTION, agu);
-                break;
+                    contmulterror++;
+                    cambiasombras();
+                    iconoagua agu = new iconoagua();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes agua!", "Error", JOptionPane.DEFAULT_OPTION, agu);
+                    break;
                 case "/":
-                contdiverror++;
-                cambiasombras();
-                iconofuego fueg = new iconofuego();
-                JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes fuego!", "Error", JOptionPane.DEFAULT_OPTION, fueg);
-                break;
+                    contdiverror++;
+                    cambiasombras();
+                    iconofuego fueg = new iconofuego();
+                    JOptionPane.showMessageDialog(null, "¡Respuesta incorrecta pierdes fuego!", "Error", JOptionPane.DEFAULT_OPTION, fueg);
+                    break;
                 default:
             }
-            if (contaciertos+conterrores==20) {
+            if (contaciertos + conterrores == 20) {
                 findeljuego();
             } else {
                 principia();

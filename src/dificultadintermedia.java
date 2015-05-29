@@ -1442,7 +1442,7 @@ public class dificultadintermedia extends javax.swing.JDialog {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         time.stop();
-          if (jButton4.getText().equals(Integer.toString(respuesta))) {
+          if (jButton5.getText().equals(Integer.toString(respuesta))) {
             contaciertos++;
             switch (simbolo) {
                 case "+":
@@ -1526,7 +1526,7 @@ public class dificultadintermedia extends javax.swing.JDialog {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         time.stop();
-        if (jButton4.getText().equals(Integer.toString(respuesta))) {
+        if (jButton6.getText().equals(Integer.toString(respuesta))) {
             contaciertos++;
             switch (simbolo) {
                 case "+":
@@ -1602,7 +1602,7 @@ public class dificultadintermedia extends javax.swing.JDialog {
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         time.stop();
-          if (jButton4.getText().equals(Integer.toString(respuesta))) {
+          if (jButton11.getText().equals(Integer.toString(respuesta))) {
             contaciertos++;
             switch (simbolo) {
                 case "+":
@@ -1678,7 +1678,7 @@ public class dificultadintermedia extends javax.swing.JDialog {
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         time.stop();
-         if (jButton4.getText().equals(Integer.toString(respuesta))) {
+         if (jButton9.getText().equals(Integer.toString(respuesta))) {
             contaciertos++;
             switch (simbolo) {
                 case "+":
@@ -1754,7 +1754,7 @@ public class dificultadintermedia extends javax.swing.JDialog {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         time.stop();
-          if (jButton4.getText().equals(Integer.toString(respuesta))) {
+          if (jButton7.getText().equals(Integer.toString(respuesta))) {
             contaciertos++;
             switch (simbolo) {
                 case "+":
@@ -1830,7 +1830,7 @@ public class dificultadintermedia extends javax.swing.JDialog {
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         time.stop();
-          if (jButton4.getText().equals(Integer.toString(respuesta))) {
+          if (jButton10.getText().equals(Integer.toString(respuesta))) {
             contaciertos++;
             switch (simbolo) {
                 case "+":
@@ -1986,7 +1986,7 @@ public class dificultadintermedia extends javax.swing.JDialog {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         time.stop();
-         if (jButton4.getText().equals(Integer.toString(respuesta))) {
+         if (jButton8.getText().equals(Integer.toString(respuesta))) {
             contaciertos++;
             switch (simbolo) {
                 case "+":
@@ -2062,7 +2062,7 @@ public class dificultadintermedia extends javax.swing.JDialog {
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         time.stop();
-         if (jButton4.getText().equals(Integer.toString(respuesta))) {
+         if (jButton12.getText().equals(Integer.toString(respuesta))) {
             contaciertos++;
             switch (simbolo) {
                 case "+":
